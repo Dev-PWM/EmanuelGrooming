@@ -3,7 +3,7 @@ CREATE TABLE Pets (
     user_id INT NOT NULL,
     pet_name VARCHAR(50) NOT NULL,
     pet_type ENUM('Dog', 'Cat') NOT NULL,
-    breed VARCHAR(50) NOT NULL,
+    breed VARCHAR(50) DEFAULT NULL,
     age INT NOT NULL CHECK (age >= 0),  -- Ensure age cannot be negative
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,

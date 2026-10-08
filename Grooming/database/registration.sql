@@ -23,9 +23,11 @@ CREATE TABLE Services (
 
 -- Insert Full and Basic Packages
 INSERT INTO Services (service_name, service_description, price, price_range) VALUES 
+('Full Package', 'Includes Bath, Shampoo, Haircut, Nail Clipping, Ear Cleaning, Teeth Brushing, and Anal Gland Expression (for pets)', 50.00, 'Small'),
 ('Full Package', 'Includes Bath, Shampoo, Haircut, Nail Clipping, Ear Cleaning, Teeth Brushing, and Anal Gland Expression (for pets)', 70.00, 'Medium'),
 ('Full Package', 'Includes Bath, Shampoo, Haircut, Nail Clipping, Ear Cleaning, Teeth Brushing, and Anal Gland Expression (for pets)', 100.00, 'Large'),
 ('Full Package', 'Includes Bath, Shampoo, Haircut, Nail Clipping, Ear Cleaning, Teeth Brushing, and Anal Gland Expression (for pets)', 200.00, 'Extra Large'),
+('Basic Package', 'Includes Bath, Shampoo, and Basic Haircut', 40.00, 'Small'),
 ('Basic Package', 'Includes Bath, Shampoo, and Basic Haircut', 60.00, 'Medium'),
 ('Basic Package', 'Includes Bath, Shampoo, and Basic Haircut', 90.00, 'Large'),
 ('Basic Package', 'Includes Bath, Shampoo, and Basic Haircut', 120.00, 'Extra Large');
@@ -39,7 +41,7 @@ CREATE TABLE Orders (
     order_status ENUM('Pending', 'Completed', 'Cancelled') NOT NULL DEFAULT 'Pending',
     payment_status ENUM('Paid', 'Unpaid') NOT NULL DEFAULT 'Unpaid',
     FOREIGN KEY (user_id) REFERENCES Users(user_id) ON DELETE CASCADE,
-    FOREIGN KEY (service_id) REFERENCES Services(service_id) ON DELETE CASCADE,
+    FOREIGN KEY (service_id) REFERENCES Services(service_id) ON DELETE RESTRICT,
     INDEX (user_id),
     INDEX (service_id)
 );
@@ -50,11 +52,12 @@ CREATE TABLE Pets (
     user_id INT NOT NULL,
     pet_name VARCHAR(50) NOT NULL,
     pet_type ENUM('Dog', 'Cat') NOT NULL,
-    breed VARCHAR(50) NOT NULL,
+    breed VARCHAR(50) DEFAULT NULL,
     age INT NOT NULL CHECK (age >= 0),
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES Users(user_id) ON DELETE CASCADE,
+    UNIQUE (pet_id, user_id),
     INDEX (user_id)
 );
 
@@ -68,8 +71,8 @@ CREATE TABLE Appointments (
     appointment_time TIME NOT NULL,
     status ENUM('Scheduled', 'Cancelled', 'Completed') NOT NULL DEFAULT 'Scheduled',
     FOREIGN KEY (user_id) REFERENCES Users(user_id) ON DELETE CASCADE,
-    FOREIGN KEY (service_id) REFERENCES Services(service_id) ON DELETE CASCADE,
-    FOREIGN KEY (pet_id) REFERENCES Pets(pet_id) ON DELETE CASCADE,
+    FOREIGN KEY (service_id) REFERENCES Services(service_id) ON DELETE RESTRICT,
+    FOREIGN KEY (pet_id, user_id) REFERENCES Pets(pet_id, user_id) ON DELETE CASCADE,
     INDEX (user_id),
     INDEX (service_id),
     INDEX (pet_id)
@@ -98,9 +101,9 @@ CREATE TABLE Reviews (
     review_id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
     pet_id INT NOT NULL,
-    rating INT CHECK (rating BETWEEN 1 AND 5),
+    rating INT NOT NULL CHECK (rating BETWEEN 1 AND 5),
     review_text TEXT,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES Users(user_id) ON DELETE CASCADE,
-    FOREIGN KEY (pet_id) REFERENCES Pets(pet_id) ON DELETE CASCADE
+    FOREIGN KEY (pet_id, user_id) REFERENCES Pets(pet_id, user_id) ON DELETE CASCADE
 );

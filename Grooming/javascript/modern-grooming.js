@@ -201,7 +201,12 @@ function initReviewsSystem() {
   try {
     const stored = localStorage.getItem('emanuel_client_reviews');
     if (stored) {
-      reviews = JSON.parse(stored);
+      const parsed = JSON.parse(stored);
+      if (Array.isArray(parsed)) {
+        reviews = parsed;
+      } else {
+        reviews = [...DEFAULT_REVIEWS];
+      }
     } else {
       reviews = [...DEFAULT_REVIEWS];
       localStorage.setItem('emanuel_client_reviews', JSON.stringify(reviews));
@@ -302,8 +307,29 @@ function renderReviews(reviewsList, filterType) {
   const container = document.getElementById('reviewsContainer');
   if (!container) return;
 
-  const filtered = reviewsList.filter(item => {
-    if (filterType === 'all') return true;
+  const validReviews = Array.isArray(reviewsList) ? reviewsList : DEFAULT_REVIEWS;
+
+  const sanitized = validReviews
+    .filter(item => item && typeof item === 'object')
+    .map(rev => {
+      let rating = parseInt(rev.rating, 10);
+      if (isNaN(rating) || rating < 1) rating = 1;
+      else if (rating > 5) rating = 5;
+
+      let petType = (rev.petType || '').toLowerCase();
+      if (petType !== 'cat' && petType !== 'dog') {
+        petType = 'dog';
+      }
+
+      return {
+        ...rev,
+        rating,
+        petType
+      };
+    });
+
+  const filtered = sanitized.filter(item => {
+    if (filterType === 'all' || !filterType) return true;
     return item.petType === filterType;
   });
 
@@ -328,15 +354,26 @@ function renderReviews(reviewsList, filterType) {
         <div class="review-stars">${starsString}</div>
         <span class="review-badge ${badgeClass}">${petIcon} ${rev.petType.toUpperCase()}</span>
       </div>
-      <p class="review-body">${escapeHTML(rev.content)}</p>
+      <p class="review-body">${escapeHTML(rev.content || '')}</p>
       <div class="review-author-wrap">
-        <img src="${avatarSrc}" alt="${escapeHTML(rev.author)}" class="author-avatar" onerror="this.src='${fallbackAvatar}'">
         <div class="author-meta">
-          <h4>${escapeHTML(rev.author)}</h4>
-          <p><span class="author-pet-tag">${escapeHTML(rev.petName)}</span> (${escapeHTML(rev.petBreed)}) • <small>${escapeHTML(rev.service)}</small></p>
+          <h4>${escapeHTML(rev.author || '')}</h4>
+          <p><span class="author-pet-tag">${escapeHTML(rev.petName || '')}</span> (${escapeHTML(rev.petBreed || '')}) • <small>${escapeHTML(rev.service || '')}</small></p>
         </div>
       </div>
     `;
+
+    const authorWrap = card.querySelector('.review-author-wrap');
+    const authorMeta = card.querySelector('.author-meta');
+    const avatarImg = document.createElement('img');
+    avatarImg.className = 'author-avatar';
+    avatarImg.alt = rev.author || '';
+    avatarImg.src = avatarSrc;
+    avatarImg.onerror = function() {
+      this.src = fallbackAvatar;
+    };
+    authorWrap.insertBefore(avatarImg, authorMeta);
+
     container.appendChild(card);
   });
 }
@@ -348,18 +385,25 @@ function updateReviewsSummary(reviewsList) {
   const fill4 = document.getElementById('barFill4');
   const fill3 = document.getElementById('barFill3');
 
-  if (!reviewsList.length) return;
+  const validReviews = (Array.isArray(reviewsList) ? reviewsList : DEFAULT_REVIEWS)
+    .filter(item => item && typeof item === 'object');
+  if (!validReviews.length) return;
 
-  const total = reviewsList.length;
-  const sum = reviewsList.reduce((acc, r) => acc + r.rating, 0);
+  const total = validReviews.length;
+  const sum = validReviews.reduce((acc, r) => {
+    let rating = parseInt(r.rating, 10);
+    if (isNaN(rating) || rating < 1) rating = 1;
+    else if (rating > 5) rating = 5;
+    return acc + rating;
+  }, 0);
   const avg = (sum / total).toFixed(1);
 
   if (scoreEl) scoreEl.textContent = avg;
   if (countEl) countEl.textContent = `Based on ${total} verified pet parent reviews`;
 
-  const count5 = reviewsList.filter(r => r.rating === 5).length;
-  const count4 = reviewsList.filter(r => r.rating === 4).length;
-  const count3 = reviewsList.filter(r => r.rating <= 3).length;
+  const count5 = validReviews.filter(r => parseInt(r.rating, 10) === 5).length;
+  const count4 = validReviews.filter(r => parseInt(r.rating, 10) === 4).length;
+  const count3 = validReviews.filter(r => parseInt(r.rating, 10) <= 3).length;
 
   if (fill5) fill5.style.width = `${Math.round((count5 / total) * 100)}%`;
   if (fill4) fill4.style.width = `${Math.round((count4 / total) * 100)}%`;

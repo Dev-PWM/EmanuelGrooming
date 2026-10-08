@@ -6,7 +6,7 @@ CREATE TABLE Orders (
     order_status ENUM('Pending', 'Completed', 'Cancelled') NOT NULL,
     payment_status ENUM('Paid', 'Unpaid') NOT NULL,
     FOREIGN KEY (user_id) REFERENCES Users(user_id) ON DELETE CASCADE,
-    FOREIGN KEY (service_id) REFERENCES Services(service_id) ON DELETE CASCADE,
+    FOREIGN KEY (service_id) REFERENCES Services(service_id) ON DELETE RESTRICT,
     INDEX (user_id),
     INDEX (service_id)
 );

@@ -11,9 +11,11 @@ CREATE TABLE Services (
 -- Insert Full Package
 INSERT INTO Services (service_name, service_description, price, price_range)
 VALUES 
+('Full Package', 'Includes Bath, Shampoo, Haircut, Nail Clipping, Ear Cleaning, Teeth Brushing, and Anal Gland Expression (for pets)', 50.00, 'Small'),
 ('Full Package', 'Includes Bath, Shampoo, Haircut, Nail Clipping, Ear Cleaning, Teeth Brushing, and Anal Gland Expression (for pets)', 70.00, 'Medium'),
 ('Full Package', 'Includes Bath, Shampoo, Haircut, Nail Clipping, Ear Cleaning, Teeth Brushing, and Anal Gland Expression (for pets)', 100.00, 'Large'),
 ('Full Package', 'Includes Bath, Shampoo, Haircut, Nail Clipping, Ear Cleaning, Teeth Brushing, and Anal Gland Expression (for pets)', 200.00, 'Extra Large'),
+('Basic Package', 'Includes Bath, Shampoo, and Basic Haircut', 40.00, 'Small'),
 ('Basic Package', 'Includes Bath, Shampoo, and Basic Haircut', 60.00, 'Medium'),
 ('Basic Package', 'Includes Bath, Shampoo, and Basic Haircut', 90.00, 'Large'),
 ('Basic Package', 'Includes Bath, Shampoo, and Basic Haircut', 120.00, 'Extra Large');
