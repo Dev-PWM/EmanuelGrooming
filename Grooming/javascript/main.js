@@ -65,7 +65,7 @@ function submitDogDetails() {
     formData.append('breed', breed);
     formData.append('age', age);
 
-    fetch('/Grooming/html/python/index.py', {
+    fetch('/', {
         method: 'POST',
         body: formData
     })
@@ -96,7 +96,7 @@ function signupUser(event) {
     formData.append('email', email);
     formData.append('password', password);
 
-    fetch('/Grooming/html/python/index.py', {
+    fetch('/', {
         method: 'POST',
         body: formData
     })

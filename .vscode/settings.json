@@ -36,4 +36,6 @@
     
     "php.executablePath": "/path/to/php/bin/php",
     "php.validate.executablePath": "/path/to/php/executable"
+    
+    
 }

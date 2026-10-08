@@ -6,7 +6,7 @@
     align-items: center;
     justify-content: space-around;
     position: absolute;
-    bottom: -70px; /* Adjust as needed */
+    bottom: 0px; /* Adjust as needed */
     z-index: 10; /* Ensure bubbles appear above other content */
 }
 
