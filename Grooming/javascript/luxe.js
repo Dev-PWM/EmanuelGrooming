@@ -2,7 +2,7 @@
    Emanuel Pet Grooming — Luxe front page engine
    - Lenis smooth scrolling (desktop pointers only; touch stays native)
    - One rAF loop drives: parallax layers, in-frame image parallax, word
-     reveal, pinned horizontal rail, scroll-scrubbed tub, header, marquee
+     reveal, scroll-scrubbed tub, header, marquee
    - Everything degrades: no JS = static page; reduced motion = no motion.
    ========================================================================== */
 (function () {
@@ -15,7 +15,6 @@
 
   var mqReduced = win.matchMedia('(prefers-reduced-motion: reduce)');
   var mqFine = win.matchMedia('(hover: hover) and (pointer: fine)');
-  var mqPin = win.matchMedia('(min-width: 1025px) and (hover: hover) and (pointer: fine)');
   var reduced = mqReduced.matches;
 
   /* ------------------------------------------------------------------------
@@ -117,50 +116,6 @@
     return out;
   }
 
-  /* ---------- pinned horizontal rail (services) ---------- */
-  var services = $('#services'), pin = services && $('.hscroll-pin', services), rail = $('#rail'), railBar = $('#railProgress');
-  var railState = { on: false, maxX: 0 };
-  function setupRail() {
-    if (!services || !rail) return;
-    var want = mqPin.matches && !reduced && vh >= 560;
-    services.classList.remove('fit-1', 'fit-2', 'is-pinned');
-    services.style.height = '';
-    rail.style.transform = '';
-    railState.on = false;
-    if (!want) return;
-    services.classList.add('is-pinned');
-    // Shrink content in tiers until the pinned stage fits the viewport height.
-    var tiers = [null, 'fit-1', 'fit-2'], fits = false;
-    for (var i = 0; i < tiers.length && !fits; i++) {
-      if (tiers[i]) services.classList.add(tiers[i]);
-      pin.style.height = 'auto';
-      fits = pin.offsetHeight <= vh + 1;
-      pin.style.height = '';
-    }
-    if (!fits) { services.classList.remove('is-pinned', 'fit-1', 'fit-2'); return; }
-    // End padding isn't part of scrollWidth on a non-scrolling flex box, so measure from the last card.
-    var last = rail.lastElementChild, endPad = parseFloat(win.getComputedStyle(rail).paddingRight) || 0;
-    railState.maxX = Math.max(0, last.offsetLeft + last.offsetWidth + endPad - vw);
-    services.style.height = (vh + railState.maxX) + 'px';
-    railState.on = true;
-  }
-  function updateRail(rect) {
-    if (!railState.on) return;
-    var span = rect.height - vh;
-    var p = span > 0 ? clamp(-rect.top / span, 0, 1) : 0;
-    rail.style.transform = 'translate3d(' + (-p * railState.maxX).toFixed(1) + 'px,0,0)';
-    if (railBar) railBar.style.transform = 'scaleX(' + p.toFixed(4) + ')';
-  }
-  // Keyboard users tabbing into an off-screen card: scroll the page to bring it into view.
-  if (rail) rail.addEventListener('focusin', function (e) {
-    if (!railState.on) return;
-    var card = e.target.closest('.card'); if (!card) return;
-    var span = services.offsetHeight - vh;
-    var p = railState.maxX ? clamp((card.offsetLeft - 60) / railState.maxX, 0, 1) : 0;
-    var top = services.getBoundingClientRect().top + win.scrollY + p * span;
-    if (lenis) lenis.scrollTo(top, { immediate: true }); else win.scrollTo(0, top);
-  });
-
   /* ---------- the visit: tub + steps ---------- */
   var tub = $('#tub'), stepsEl = $('#steps'), stepEls = $$('.step'), tubStep = $('#tubStep'), tubName = $('#tubName'), activeStep = -1;
   function updateJourney(stepRects) {
@@ -224,7 +179,6 @@
     mouse.x += (mouse.tx - mouse.x) * 0.07; mouse.y += (mouse.ty - mouse.y) * 0.07;
 
     // ---- read phase ----
-    var rails = railState.on ? services.getBoundingClientRect() : null;
     var wRect = words.length ? statementEl.getBoundingClientRect() : null;
     var fRects = [];
     for (var i = 0; i < frames.length; i++) {
@@ -249,19 +203,31 @@
         wordsLit = lit;
       }
     }
-    updateRail(rails);
     updateJourney(sRects);
     updateChrome(y, delta);
     updateTilt(y);
     if (bubbles) { bubbles.update(dt, delta); bubbles.draw(); }
   }
 
+  /* ---------- package cards: one shared height ---------- */
+  // The stacked cards must all be as tall as the tallest, or a taller card pokes out beneath the
+  // next one. Content wraps differently at every width, so measure instead of hand-tuning rems.
+  // (The CSS --pkg-min values stay as the no-JS fallback.)
+  function fitPackages() {
+    var cards = $$('.pkg');
+    if (!cards.length) return;
+    cards.forEach(function (c) { c.style.setProperty('--pkg-min', '0px'); });
+    var tallest = 0;
+    cards.forEach(function (c) { tallest = Math.max(tallest, c.offsetHeight); });
+    cards.forEach(function (c) { c.style.setProperty('--pkg-min', (tallest + 2) + 'px'); });
+  }
+
   /* ---------- measuring ---------- */
   var measureTimer = 0;
   function measureAll() {
     vw = win.innerWidth; vh = win.innerHeight;
+    fitPackages();
     docH = doc.documentElement.scrollHeight;
-    setupRail();
     measureLayers();
     docH = doc.documentElement.scrollHeight;
   }
@@ -282,14 +248,20 @@
   [portalDialog, lightbox].forEach(function (d) { if (d) wireDialog(d); });
   $$('[data-open-portal]').forEach(function (b) { b.addEventListener('click', function () { closeMenu(); openDialog(portalDialog); }); });
 
-  // Lightbox
-  var shots = $$('.shot'), lbIdx = 0, lbImg = $('#lbImg'), lbCap = $('#lbCap');
+  // Lightbox: each [data-lightbox="name"] group (gallery, bubble field) pages through its own photos
+  var lbGroup = [], lbIdx = 0, lbImg = $('#lbImg'), lbCap = $('#lbCap');
   function showShot(i) {
-    lbIdx = (i + shots.length) % shots.length;
-    var s = shots[lbIdx], img = $('img', s);
+    lbIdx = (i + lbGroup.length) % lbGroup.length;
+    var s = lbGroup[lbIdx], img = $('img', s);
     lbImg.src = img.getAttribute('src'); lbImg.alt = img.alt; lbCap.textContent = s.getAttribute('data-caption') || '';
   }
-  shots.forEach(function (s, i) { s.addEventListener('click', function () { showShot(i); openDialog(lightbox); }); });
+  $$('[data-lightbox]').forEach(function (s) {
+    s.addEventListener('click', function () {
+      lbGroup = $$('[data-lightbox="' + s.getAttribute('data-lightbox') + '"]');
+      showShot(lbGroup.indexOf(s));
+      openDialog(lightbox);
+    });
+  });
   if (lightbox) {
     $('.lb-prev', lightbox).addEventListener('click', function () { showShot(lbIdx - 1); });
     $('.lb-next', lightbox).addEventListener('click', function () { showShot(lbIdx + 1); });
@@ -438,7 +410,6 @@
     wireNavHighlight();
     initBubbles();
 
-    mqPin.addEventListener('change', queueMeasure);
     win.addEventListener('resize', queueMeasure, { passive: true });
     win.addEventListener('load', measureAll);
     if (doc.fonts && doc.fonts.ready) doc.fonts.ready.then(queueMeasure);
