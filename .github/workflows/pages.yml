@@ -1,0 +1,55 @@
+name: Deploy site to GitHub Pages
+
+on:
+  push:
+    branches: [Master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      # Publish only the files the site uses. The repo also holds the previous version of the
+      # site, database schemas and full-size originals, and none of that should be served.
+      - name: Assemble site
+        run: |
+          mkdir -p _site/Grooming/CSS _site/Grooming/javascript/vendor _site/Grooming/assets/img
+          cp index.html 404.html robots.txt sitemap.xml _site/
+          cp Grooming/CSS/luxe.css _site/Grooming/CSS/
+          cp Grooming/javascript/luxe.js Grooming/javascript/luxe-bubbles.js _site/Grooming/javascript/
+          cp Grooming/javascript/vendor/lenis.min.js _site/Grooming/javascript/vendor/
+          cp -R Grooming/assets/fonts Grooming/assets/brand _site/Grooming/assets/
+          cp -R Grooming/assets/img/happy-tails _site/Grooming/assets/img/
+
+      # Fail the deploy if the page points at a file that did not make it into the site.
+      - name: Check every referenced file is present
+        run: |
+          missing=0
+          for f in $(grep -hoE '(src|href|srcset)="\./Grooming/[^" ,]+' index.html | sed -E 's/^[a-z]+="\.\///' | sort -u); do
+            [ -e "_site/$f" ] || { echo "Missing from site: $f"; missing=1; }
+          done
+          for f in $(grep -hoE "url\('\.\./assets/[^']+'\)" Grooming/CSS/luxe.css | sed -E "s#url\('\.\./#Grooming/#; s#'\)##" | sort -u); do
+            [ -e "_site/$f" ] || { echo "Missing from site (css): $f"; missing=1; }
+          done
+          exit $missing
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deployment
+        uses: actions/deploy-pages@v4

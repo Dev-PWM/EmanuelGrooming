@@ -53,7 +53,37 @@ These came from the shop's flyer and Instagram profile.
 2. **Older copy.** Some wording came from the previous site and was not confirmed: the "disinfected between visits" and "rest, stretch and fresh water" lines in the Studio section, the rabies and kennel-cough rule in the FAQ, and the "calm, one-on-one" description. Keep what is true.
 3. **Rating / review counts.** The old "4.9 stars, 150+ reviews" and the made-up testimonials were removed. Add real figures only if you can back them up.
 4. **Photo permission.** The gallery and hero use photos of real customers (including children). Make sure you have their OK to publish them.
-5. **Share image.** `og:image` is a relative path. Replace it with the full URL (`https://your-domain/...`) once the site has a domain, so link previews work.
+5. **Share image.** `og:image`, the canonical link and the structured data already use `https://emanuelpetgrooming.com`. If the domain ever changes, update them in `index.html` along with `robots.txt` and `sitemap.xml`.
+
+## Publishing (GitHub Pages + Squarespace DNS)
+
+The site is static, so GitHub Pages hosts it for free. Every push to `Master` runs `.github/workflows/pages.yml`, which publishes **only** the files the page uses (the old site, database schemas and full-size originals are left out) and fails the deploy if the page points at a file that is missing.
+
+One-time setup:
+
+1. **GitHub:** repo Settings, then Pages, then Build and deployment, then Source: **GitHub Actions**. Run the workflow once from the Actions tab (the first run fails until this is set) and open `https://dev-pwm.github.io/EmanuelGrooming/` to preview it. The custom 404 page only looks right on the real domain, because it uses root-relative paths.
+2. **GitHub, recommended:** verify the domain so nobody else can claim it. In the **organization** (not the repo) go to Settings, then Pages, then Add a domain, enter `emanuelpetgrooming.com`, and add the TXT record GitHub shows you. The record name is `_github-pages-challenge-Dev-PWM`, and the value is whatever GitHub displays. Keep it in DNS afterwards.
+3. **GitHub:** repo Settings, then Pages, then Custom domain: `emanuelpetgrooming.com`, then Save.
+4. **Squarespace DNS** (Domains, `emanuelpetgrooming.com`, DNS Settings). Squarespace asks you to re-enter your password for DNS changes.
+   - Delete the **Squarespace Defaults** preset (the trash icon on that card). It holds the four Squarespace A records, the `www` CNAME and the HTTPS record. The HTTPS record must go too, because its IP hints keep steering browsers to Squarespace. If Squarespace refuses to save a new record, a leftover default is almost always the conflict.
+   - Keep **Squarespace Domain Connect** and **Email Security** (the email records stop anyone spoofing the domain).
+   - Under Custom records, Add record. Type the root domain as `@` in Name:
+
+   | Type | Name | Data |
+   | --- | --- | --- |
+   | A | `@` | `185.199.108.153` |
+   | A | `@` | `185.199.109.153` |
+   | A | `@` | `185.199.110.153` |
+   | A | `@` | `185.199.111.153` |
+   | AAAA (optional, IPv6) | `@` | `2606:50c0:8000::153`, `2606:50c0:8001::153`, `2606:50c0:8002::153`, `2606:50c0:8003::153` (one record each) |
+   | CNAME | `www` | `dev-pwm.github.io` |
+   | TXT (from step 2) | `_github-pages-challenge-Dev-PWM` | the value GitHub shows |
+
+5. Wait for DNS. Squarespace says changes can take 24 to 48 hours; it is usually much faster. When GitHub's DNS check passes, tick **Enforce HTTPS** in Settings, then Pages. `www.emanuelpetgrooming.com` then redirects to `emanuelpetgrooming.com`.
+
+The domain is registered with Squarespace and renews on 6 Oct 2027, so leave auto-renew on.
+
+Editing the site afterwards is just a commit to `Master`. The new version goes live in about a minute.
 
 ## Client portal
 
