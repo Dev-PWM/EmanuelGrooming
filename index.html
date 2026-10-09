@@ -2,1208 +2,632 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Emanuel Pet Grooming | Gentle Dog & Cat Care in East LA</title>
-  <meta name="description" content="Emanuel Pet Grooming provides loving, gentle, and professional grooming for dogs and cats. Calm home setting, warm hydrobaths, haircut styling, and deshedding.">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Emanuel Pet Grooming | Dog &amp; Cat Grooming in East Los Angeles</title>
+  <meta name="description" content="Emanuel Pet Grooming is a calm, one-on-one dog and cat grooming studio in East Los Angeles. Warm hydrobaths, hand-scissored styling, deshedding and gentle cat care. Call or text (323) 895-7164.">
+  <meta name="theme-color" content="#DCEFF7">
 
-  <!-- Favicon icon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐾</text></svg>">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Emanuel Pet Grooming | East Los Angeles">
+  <meta property="og:description" content="A calm, one-on-one grooming studio for dogs and cats. Warm hydrobaths, hand-scissored styling and a gentle pace.">
+  <meta property="og:image" content="./Grooming/assets/brand/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
 
-  <!-- Modern Stylesheets -->
-  <link rel="stylesheet" href="./Grooming/CSS/modern-grooming.css">
+  <link rel="icon" href="./Grooming/assets/brand/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="./Grooming/assets/brand/apple-touch-icon.png">
+
+  <!-- Flags JS early so scroll-reveal styles never hide content when scripts fail -->
+  <script>document.documentElement.classList.add('js');</script>
+
+  <link rel="preload" href="./Grooming/assets/fonts/bodoni-moda-italic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="./Grooming/assets/fonts/hanken-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="./Grooming/CSS/luxe.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "PetGroomer",
+    "name": "Emanuel Pet Grooming",
+    "telephone": "+1-323-895-7164",
+    "image": "./Grooming/assets/brand/og-image.jpg",
+    "areaServed": ["East Los Angeles, CA", "Montebello, CA"],
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "08:00", "closes": "17:00" }
+    ]
+  }
+  </script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- ==========================================================================
-       TOP ANNOUNCEMENT BAR
-       ========================================================================== -->
-  <aside class="top-bar" aria-label="Quick contact and announcements">
-    <div class="container">
-      <div class="top-bar-left">
-        <span class="top-bar-item">
-          📍 East Los Angeles & Montebello, CA
-        </span>
-        <span class="top-bar-item">
-          🕒 Mon - Sat: 8:00 AM - 5:00 PM
-        </span>
-      </div>
-      <div class="top-bar-right">
-        <span class="top-bar-badge">⭐ 4.9 Rating (150+ Happy Pet Parents)</span>
-        <span class="top-bar-item">
-          📞 <a href="tel:3238957164">Call / Text: (323) 895-7164</a>
-        </span>
-      </div>
+  <!-- Reusable SVG symbols -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="i-paw" viewBox="0 0 64 64">
+        <ellipse cx="19" cy="27" rx="4.6" ry="6.2" transform="rotate(-24 19 27)"/>
+        <ellipse cx="28" cy="17.5" rx="4.6" ry="6.2"/>
+        <ellipse cx="37" cy="17.5" rx="4.6" ry="6.2"/>
+        <ellipse cx="46" cy="27" rx="4.6" ry="6.2" transform="rotate(24 46 27)"/>
+        <path d="M32.5 29c-7.6 0-13.5 7.4-13.5 13 0 3.8 3.1 5.6 6.2 5.6 2.5 0 4.4-1.3 7.3-1.3s4.8 1.3 7.3 1.3c3.1 0 6.2-1.8 6.2-5.6C46 36.4 40.1 29 32.5 29z"/>
+      </symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></symbol>
+      <symbol id="i-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M21 11.5a8.5 8.5 0 0 1-12.4 7.6L3 20.5l1.4-5A8.5 8.5 0 1 1 21 11.5z"/></symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11z"/><circle cx="12" cy="10" r="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
+      <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol>
+      <!-- service glyphs -->
+      <symbol id="g-bath" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="17" cy="29" r="9"/><circle cx="33" cy="17" r="6"/><circle cx="35" cy="34" r="4"/><path d="M13 25.5a5 5 0 0 1 3-2.5M30.500 14.500a3 3 0 0 1 2-1"/></g></symbol>
+      <symbol id="g-scissors" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="13" cy="33" r="5"/><circle cx="13" cy="15" r="5"/><path d="M17 17.500 40 36M17 30.500 40 12"/></g></symbol>
+      <symbol id="g-cat" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M10 38V14l8 6h12l8-6v24c0 3-4 6-14 6S10 41 10 38z"/><path d="M19 29h.01M29 29h.01M24 33v2M6 31l8 1.500M6 37l8-2M42 31l-8 1.500M42 37l-8-2"/></g></symbol>
+      <symbol id="g-brush" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="9" width="32" height="12" rx="4"/><path d="M13 21v14M19 21v17M25 21v17M31 21v14M37 21v10"/></g></symbol>
+      <symbol id="g-paw" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="22" rx="3.200" ry="4.500" transform="rotate(-22 12 22)"/><ellipse cx="20" cy="13" rx="3.200" ry="4.500"/><ellipse cx="29" cy="13" rx="3.200" ry="4.500"/><ellipse cx="37" cy="22" rx="3.200" ry="4.500" transform="rotate(22 37 22)"/><path d="M24.500 25c-6 0-10 5.500-10 9.500 0 3 2.500 4.500 5 4.500 1.800 0 3.200-1 5-1s3.200 1 5 1c2.500 0 5-1.500 5-4.500 0-4-4-9.500-10-9.500z"/></g></symbol>
+      <symbol id="g-spark" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M24 6c1 9 4 12 14 14-10 2-13 5-14 15-1-10-4-13-14-15 10-2 13-5 14-14z"/><path d="M38 33c.4 3.500 1.600 4.700 5 5.300-3.400.6-4.600 1.800-5 5.300-.4-3.500-1.600-4.700-5-5.300 3.400-.6 4.600-1.800 5-5.300z"/></g></symbol>
+    </defs>
+  </svg>
+
+  <!-- ===== Preloader ===== -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader-inner">
+      <img src="./Grooming/assets/brand/logo-sm.webp" alt="" width="480" height="394">
+      <span class="pl-bubble pl-b1"></span><span class="pl-bubble pl-b2"></span><span class="pl-bubble pl-b3"></span><span class="pl-bubble pl-b4"></span>
     </div>
-  </aside>
+  </div>
 
-  <!-- ==========================================================================
-       STICKY NAVIGATION HEADER
-       ========================================================================== -->
-  <header class="site-header">
-    <div class="container">
-      <a href="#home" class="site-logo">
-        <div class="logo-icon-wrap">🐾</div>
-        <div class="logo-text">
-          <span class="logo-title">Emanuel <span>Pet Grooming</span></span>
-          <span class="logo-tagline">Dogs & Cats Gentle Care</span>
-        </div>
+  <!-- Ambient interactive bubbles (drawn by luxe-bubbles.js) -->
+  <canvas class="bubble-canvas" id="bubbleCanvas" aria-hidden="true"></canvas>
+  <div class="scroll-progress" aria-hidden="true"><span id="scrollProgress"></span></div>
+
+  <!-- ===== Header ===== -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-bar">
+      <a class="brand" href="#home" aria-label="Emanuel Pet Grooming, back to top">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 64 64"><use href="#i-paw"/></svg></span>
+        <span class="brand-words"><b>Emanuel</b><i>Pet Grooming</i></span>
       </a>
 
-      <!-- Desktop Navigation Menu -->
-      <nav>
-        <ul class="nav-menu" id="navMenu">
-          <li><a href="#home" class="nav-link active">Home</a></li>
-          <li><a href="#about" class="nav-link">About Us</a></li>
-          <li><a href="#services" class="nav-link">Services</a></li>
-          <li><a href="#why-us" class="nav-link">Why Choose Us</a></li>
-          <li><a href="#reviews" class="nav-link">Client Stars ⭐</a></li>
-          <li><a href="#gallery" class="nav-link">Happy Tails</a></li>
-          <li><a href="#portal" class="nav-link">Pet Portal</a></li>
-          <li><a href="#contact" class="nav-link">Contact</a></li>
-        </ul>
+      <nav class="nav" aria-label="Primary">
+        <a href="#about">Studio</a>
+        <a href="#services">Services</a>
+        <a href="#journey">The visit</a>
+        <a href="#happy-tails">Happy tails</a>
+        <a href="#visit">Find us</a>
       </nav>
 
-      <!-- Action Buttons -->
-      <div class="nav-actions">
-        <button type="button" class="portal-btn" onclick="openModal('portalModal')">
-          👤 Client Portal
+      <div class="header-actions">
+        <button class="btn-portal" type="button" data-open-portal>
+          <svg class="ico" aria-hidden="true"><use href="#i-lock"/></svg>
+          <span>Client portal</span><em class="chip">Soon</em>
         </button>
-        <a href="#contact" class="btn btn-primary btn-sm">
-          Book Appointment
+        <a class="btn btn-primary btn-sm header-call" href="tel:+13238957164">
+          <svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg><span>Call or text</span>
         </a>
+        <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open menu">
+          <span></span><span></span>
+        </button>
       </div>
-
-      <!-- Mobile Hamburger Button -->
-      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Navigation">
-        ☰
-      </button>
     </div>
   </header>
 
-  <!-- ==========================================================================
-       HERO SECTION
-       ========================================================================== -->
-  <section class="hero" id="home">
-    <!-- Floating Bubbles Container -->
-    <div class="hero-bubbles-container" id="heroBubbles"></div>
-
-    <div class="container">
-      <!-- Left Copy Column -->
-      <div class="hero-content">
-        <div class="hero-pill">
-          <span class="star">★</span> Premier Cat & Dog Grooming Sanctuary
-        </div>
-
-        <h1 class="hero-title">
-          Pampering Your Pets With <span class="highlight">Tender Love</span>, Patience & Style
-        </h1>
-
-        <p class="hero-desc">
-          Welcome to <strong>Emanuel Pet Grooming</strong> — a calm, stress-free home setting where your furry family is treated like our own. From warm bubble hydrobaths and breed haircuts to deshedding and gentle cat care, we make grooming an enjoyable, peaceful experience.
-        </p>
-
-        <div class="hero-cta-group">
-          <a href="#contact" class="btn btn-primary btn-lg">
-            🗓️ Request Appointment
-          </a>
-          <button type="button" class="btn btn-outline btn-lg" onclick="openModal('reviewModal')">
-            ⭐ Leave a Review & Star
-          </button>
-        </div>
-
-        <!-- Trust Metrics Row -->
-        <div class="hero-trust-row">
-          <div class="hero-trust-item">
-            <div class="trust-icon">⭐</div>
-            <div class="trust-text">
-              <h4>4.9 / 5.0</h4>
-              <p>150+ Happy Reviews</p>
-            </div>
-          </div>
-          <div class="hero-trust-item">
-            <div class="trust-icon">🐶🐱</div>
-            <div class="trust-text">
-              <h4>Dogs & Cats</h4>
-              <p>All Breeds & Sizes</p>
-            </div>
-          </div>
-          <div class="hero-trust-item">
-            <div class="trust-icon">🌿</div>
-            <div class="trust-text">
-              <h4>Hypoallergenic</h4>
-              <p>Gentle Organic Spa</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Right Visual Showcase -->
-      <div class="hero-visual">
-        <div class="hero-image-card">
-          <!-- Floating badge 1 -->
-          <div class="hero-float-badge badge-top-left">
-            <div class="badge-icon">🛁</div>
-            <div class="badge-info">
-              <h5>Fresh & Fluffy</h5>
-              <p>Warm Bubble Bath</p>
-            </div>
-          </div>
-
-          <!-- Hero Main Pet Illustration/Photo -->
-          <img 
-            src="./Grooming/assets/png/ai-generated-friendly-dog-waving-hello-with-paw-isolated-png.png" 
-            alt="Emanuel Pet Grooming friendly happy dog" 
-            class="hero-main-img"
-          >
-
-          <!-- Floating badge 2 -->
-          <div class="hero-float-badge badge-bottom-right">
-            <div class="badge-icon">🐱</div>
-            <div class="badge-info">
-              <h5>Gentle Feline Care</h5>
-              <p>Stress-free & Quiet</p>
-            </div>
-          </div>
-        </div>
-      </div>
+  <!-- ===== Full-screen menu (tablet + mobile) ===== -->
+  <div class="menu" id="menu" aria-hidden="true" inert>
+    <nav class="menu-nav" aria-label="Mobile">
+      <a href="#about">Studio</a>
+      <a href="#services">Services</a>
+      <a href="#journey">The visit</a>
+      <a href="#happy-tails">Happy tails</a>
+      <a href="#portal">Client portal <em class="chip">Soon</em></a>
+      <a href="#visit">Find us</a>
+    </nav>
+    <div class="menu-foot">
+      <a class="btn btn-light" href="tel:+13238957164"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg>Call or text (323) 895-7164</a>
+      <p>Mon–Sat · 8 am–5 pm<br>East Los Angeles &amp; Montebello</p>
     </div>
-  </section>
+  </div>
 
-  <!-- ==========================================================================
-       ABOUT EMANUEL PET GROOMING ("WHAT THE BUSINESS REALLY IS")
-       ========================================================================== -->
-  <section class="about-section" id="about">
-    <div class="container">
-      <div class="about-grid">
-        <!-- Visual Column -->
-        <div class="about-visual-cluster">
-          <div class="about-visual-main">
-            <img 
-              src="./Grooming/assets/img/background/poodle.JPG" 
-              alt="Emanuel Pet Grooming beautifully groomed poodle"
-            >
-          </div>
-          <div class="about-experience-card">
-            <div class="exp-number">10+</div>
-            <div class="exp-label">Years of Gentle Pet Care & Grooming Excellence</div>
-          </div>
-        </div>
+  <main id="main">
 
-        <!-- Text Content Column -->
-        <div class="about-text-content">
-          <div class="section-badge">Our Story & Heart</div>
-          <h2 class="section-title">
-            What <span>Emanuel Pet Grooming</span> Really Is
-          </h2>
+    <!-- ===== Hero ===== -->
+    <section class="hero" id="home">
+      <div class="hero-sky" aria-hidden="true">
+        <span class="hero-orb" data-depth="3"></span>
+        <span class="ring ring-a" data-depth="2"></span>
+        <span class="ring ring-b" data-depth="-2"></span>
+      </div>
 
-          <p class="about-story-lead">
-            We are not a rushed, loud, conveyor-belt pet factory. We are a family-owned pet care sanctuary built on deep love, patience, and gentle handling.
+      <div class="wrap hero-grid">
+        <div class="hero-copy" data-depth="1">
+          <p class="eyebrow reveal" data-hero style="--d:.1s">East Los Angeles · Dog &amp; cat grooming studio</p>
+          <h1 class="hero-title" aria-label="Every pet leaves camera-ready.">
+            <span class="line" aria-hidden="true"><span style="--d:.15s">Every pet</span></span>
+            <span class="line" aria-hidden="true"><span style="--d:.25s">leaves</span></span>
+            <span class="line" aria-hidden="true"><span style="--d:.35s"><em>camera&#8209;ready</em></span></span>
+          </h1>
+          <p class="hero-lede reveal" data-hero style="--d:.55s">
+            Emanuel Pet Grooming is a calm, one-on-one studio for dogs and cats: warm hydrobaths, hand-scissored styling, and the patience to never rush your pet.
           </p>
-
-          <p class="about-story-p">
-            As owner and founder of <strong>Emanuel Pet Grooming</strong>, we understand that you and your pet need to feel completely comfortable and safe. That is why our grooming is based in a calm, ultra-clean home setting with a relaxed atmosphere that caters to all your dog and cat's individual needs.
-          </p>
-
-          <p class="about-story-p">
-            Your pet will be treated as one of our own. While here, they have plenty of time to rest, stretch their legs in sanitized resting areas, and enjoy fresh filtered water so their experience is joyful, not stressful.
-          </p>
-
-          <!-- Key Care Pillars -->
-          <div class="care-pillars-list">
-            <div class="care-pillar-item">
-              <div class="pillar-icon">✓</div>
-              <div class="pillar-info">
-                <h4>Stress-Free Pace</h4>
-                <p>Never rushed; we listen to your pet's body language and take soothing breaks.</p>
-              </div>
-            </div>
-            <div class="care-pillar-item">
-              <div class="pillar-icon">✓</div>
-              <div class="pillar-info">
-                <h4>Cats & Dogs Welcome</h4>
-                <p>Dedicated gentle approach for feline friends and canine companions of all sizes.</p>
-              </div>
-            </div>
-            <div class="care-pillar-item">
-              <div class="pillar-icon">✓</div>
-              <div class="pillar-info">
-                <h4>Sanitized & Clean</h4>
-                <p>Hospital-grade disinfection of all tables, shears, tubs, and rest spaces.</p>
-              </div>
-            </div>
-            <div class="care-pillar-item">
-              <div class="pillar-icon">✓</div>
-              <div class="pillar-info">
-                <h4>Honest, Warm Communication</h4>
-                <p>Direct updates from Emanuel with tips for maintaining your pet's coat at home.</p>
-              </div>
-            </div>
+          <div class="hero-cta reveal" data-hero style="--d:.7s">
+            <a class="btn btn-primary" href="tel:+13238957164"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg>Call or text us</a>
+            <a class="btn btn-ghost" href="#happy-tails">See happy tails <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
           </div>
-
-          <div class="founder-quote-box">
-            "Every pet deserves to leave here feeling loved, looking sharp, and wagging their tail. That's the Emanuel guarantee."
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       SERVICES & PRICING SHOWCASE ("WHAT GROOMING PROVIDES")
-       ========================================================================== -->
-  <section class="services-section" id="services">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-badge orange">Our Services & Treatments</div>
-        <h2 class="section-title">Professional Care For <span>Dogs & Cats</span></h2>
-        <p class="section-subtitle">
-          From refreshing baths to scissor precision cuts and specialized deshedding, each service is designed for your pet's wellness, comfort, and radiant look.
-        </p>
-      </div>
-
-      <!-- Filter Tabs -->
-      <div class="services-filter-tabs">
-        <button class="tab-btn active" data-filter="all">🐾 All Services</button>
-        <button class="tab-btn" data-filter="dog">🐶 Dog Grooming</button>
-        <button class="tab-btn" data-filter="cat">🐱 Cat Grooming</button>
-        <button class="tab-btn" data-filter="addon">✨ Spa Add-ons</button>
-      </div>
-
-      <!-- Services Grid -->
-      <div class="services-grid">
-        <!-- Service 1: Full Bath & Blowout (Dog) -->
-        <article class="service-card" data-category="dog">
-          <div class="service-card-top">
-            <span class="service-tag">🐶 Dogs</span>
-            <img src="./Grooming/assets/img/dog3.jpg" alt="Dog enjoying warm bath">
-          </div>
-          <div class="service-card-body">
-            <div class="service-header-row">
-              <h3 class="service-title">The Hydro-Bath & Blowout</h3>
-              <span class="service-price">From $45</span>
-            </div>
-            <p class="service-desc">
-              A deep, refreshing spa hydrobath that loosens dirt, cleanses skin, and leaves coats irresistibly soft and fragrant.
-            </p>
-            <div class="service-includes-title">What's Included:</div>
-            <ul class="service-checklist">
-              <li><span class="check">✓</span> Warm hydro-massage bath & organic shampoo</li>
-              <li><span class="check">✓</span> Tearless blueberry facial scrub</li>
-              <li><span class="check">✓</span> Ear cleaning & gentle flush</li>
-              <li><span class="check">✓</span> Nail clipping & sanitary trim</li>
-              <li><span class="check">✓</span> Warm hand blow-dry & thorough brush</li>
-            </ul>
-            <div class="service-footer">
-              <span class="service-duration">⏱️ ~60 - 90 mins</span>
-              <a href="#contact" class="btn btn-outline btn-sm">Select Service</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Service 2: Full Haircut & Styling (Dog) -->
-        <article class="service-card" data-category="dog">
-          <div class="service-card-top">
-            <span class="service-tag">🐶 Dogs • Most Popular</span>
-            <img src="./Grooming/assets/img/Whitepoodle.PNG" alt="Styled groomed dog with haircut">
-          </div>
-          <div class="service-card-body">
-            <div class="service-header-row">
-              <h3 class="service-title">Full Haircut & Scissor Styling</h3>
-              <span class="service-price">From $65</span>
-            </div>
-            <p class="service-desc">
-              The ultimate makeover. Includes our full hydrobath plus precision breed haircut, teddy bear trim, or custom summer style.
-            </p>
-            <div class="service-includes-title">What's Included:</div>
-            <ul class="service-checklist">
-              <li><span class="check">✓</span> Everything in The Hydro-Bath & Blowout</li>
-              <li><span class="check">✓</span> Hand-scissored face, paws, and tail</li>
-              <li><span class="check">✓</span> Customized full-body breed trim</li>
-              <li><span class="check">✓</span> Paw pad hair clearing & smoothing</li>
-              <li><span class="check">✓</span> Conditioning cologne mist & bandanna</li>
-            </ul>
-            <div class="service-footer">
-              <span class="service-duration">⏱️ ~90 - 120 mins</span>
-              <a href="#contact" class="btn btn-primary btn-sm">Select Service</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Service 3: Cat Grooming Suite (Cat) -->
-        <article class="service-card" data-category="cat">
-          <div class="service-card-top">
-            <span class="service-tag cat">🐱 Cats Only</span>
-            <img src="./Grooming/assets/png/cute-cat-isolated-png.png" alt="Fluffy groomed cat">
-          </div>
-          <div class="service-card-body">
-            <div class="service-header-row">
-              <h3 class="service-title">Gentle Cat Grooming Suite</h3>
-              <span class="service-price">From $60</span>
-            </div>
-            <p class="service-desc">
-              Feline-specialized quiet care. Designed for sensitive cats with gentle deshedding, sanitary hygiene trim, or full lion cut.
-            </p>
-            <div class="service-includes-title">What's Included:</div>
-            <ul class="service-checklist">
-              <li><span class="check">✓</span> Quiet, stress-free feline handling</li>
-              <li><span class="check">✓</span> Waterless or gentle sponge bath</li>
-              <li><span class="check">✓</span> Thorough dead undercoat brush-out</li>
-              <li><span class="check">✓</span> Nail trim & gentle ear wipe</li>
-              <li><span class="check">✓</span> Optional Lion Cut or Sanitary Trim</li>
-            </ul>
-            <div class="service-footer">
-              <span class="service-duration">⏱️ ~45 - 75 mins</span>
-              <a href="#contact" class="btn btn-secondary btn-sm">Select Service</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Service 4: De-Shedding Furminator Treatment (Dogs & Cats) -->
-        <article class="service-card" data-category="dog">
-          <div class="service-card-top">
-            <span class="service-tag">🐶 & 🐱 All Breeds</span>
-            <img src="./Grooming/assets/png/golden-retriever-sitting-and-looking-up-on-transparent-background-png.png" alt="Golden retriever shedding solution">
-          </div>
-          <div class="service-card-body">
-            <div class="service-header-row">
-              <h3 class="service-title">Deep De-Shedding Therapy</h3>
-              <span class="service-price">From $55</span>
-            </div>
-            <p class="service-desc">
-              Reduces loose hair and home shedding by up to 80%. Eliminates thick undercoat traps and helps pet skin breathe naturally.
-            </p>
-            <div class="service-includes-title">What's Included:</div>
-            <ul class="service-checklist">
-              <li><span class="check">✓</span> Undercoat loosening amino-acid soak</li>
-              <li><span class="check">✓</span> High-velocity blow-out of trapped dander</li>
-              <li><span class="check">✓</span> Multi-step Furminator carding & rake brush</li>
-              <li><span class="check">✓</span> Skin moisturization & coat shine treatment</li>
-            </ul>
-            <div class="service-footer">
-              <span class="service-duration">⏱️ ~75 - 90 mins</span>
-              <a href="#contact" class="btn btn-outline btn-sm">Select Service</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Service 5: Puppy & Kitten First Spa -->
-        <article class="service-card" data-category="dog">
-          <div class="service-card-top">
-            <span class="service-tag">🐾 Young Pets</span>
-            <img src="./Grooming/assets/img/puppysmile1.jpg" alt="Cute happy puppy first groom">
-          </div>
-          <div class="service-card-body">
-            <div class="service-header-row">
-              <h3 class="service-title">Puppy & Kitten First Groom</h3>
-              <span class="service-price">From $40</span>
-            </div>
-            <p class="service-desc">
-              Positive reinforcement introductory visit. Teaches young pets that grooming is safe, comfortable, and full of cuddles.
-            </p>
-            <div class="service-includes-title">What's Included:</div>
-            <ul class="service-checklist">
-              <li><span class="check">✓</span> Slow introduction to gentle water & dryer</li>
-              <li><span class="check">✓</span> Gentle paw & nail handling</li>
-              <li><span class="check">✓</span> Light eye & sanitary trim</li>
-              <li><span class="check">✓</span> Lots of healthy treats & loving cuddles</li>
-            </ul>
-            <div class="service-footer">
-              <span class="service-duration">⏱️ ~45 mins</span>
-              <a href="#contact" class="btn btn-outline btn-sm">Select Service</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Service 6: A La Carte Spa Add-ons -->
-        <article class="service-card" data-category="addon">
-          <div class="service-card-top">
-            <span class="service-tag">✨ Add-on Spa</span>
-            <img src="./Grooming/assets/img/bulldog.jpg" alt="Spa treatments for dogs">
-          </div>
-          <div class="service-card-body">
-            <div class="service-header-row">
-              <h3 class="service-title">A La Carte Wellness Care</h3>
-              <span class="service-price">$10 - $25</span>
-            </div>
-            <p class="service-desc">
-              Quick hygiene and comfort enhancements that keep teeth clean, breath fresh, and paw pads smooth and protected.
-            </p>
-            <div class="service-includes-title">Available Add-ons:</div>
-            <ul class="service-checklist">
-              <li><span class="check">✓</span> Ultrasonic/enzymatic teeth brushing ($12)</li>
-              <li><span class="check">✓</span> Nail filing / smooth Dremel ($15)</li>
-              <li><span class="check">✓</span> Healing shea butter paw balm ($10)</li>
-              <li><span class="check">✓</span> Medicated flea & tick hydrobath ($20)</li>
-            </ul>
-            <div class="service-footer">
-              <span class="service-duration">⏱️ ~15 - 25 mins</span>
-              <a href="#contact" class="btn btn-outline btn-sm">Add to Visit</a>
-            </div>
-          </div>
-        </article>
-      </div>
-
-      <!-- Pricing Notice Banner -->
-      <div class="services-note-banner">
-        <div class="note-banner-left">
-          <div class="note-icon">💡</div>
-          <div class="note-banner-text">
-            <h4>Custom Breed & Size Pricing</h4>
-            <p>Prices vary based on pet breed, coat condition, weight, and temperament. Call us for a 100% free consultation quote!</p>
-          </div>
-        </div>
-        <a href="tel:3238957164" class="btn btn-primary btn-sm">📞 Call for Free Quote</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       HOW WE HELP THEM (HEALTH & WELLNESS PHILOSOPHY)
-       ========================================================================== -->
-  <section class="how-we-help-section" id="why-us">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-badge green">Our Care Commitment</div>
-        <h2 class="section-title">How We Help Your <span>Pets Flourish</span></h2>
-        <p class="section-subtitle">
-          Grooming is more than looking good — it is vital healthcare. Here is how our personalized care protects your pet's physical and emotional wellbeing.
-        </p>
-      </div>
-
-      <div class="help-grid">
-        <div class="help-card">
-          <div class="help-icon-bubble">🧘</div>
-          <h3>Zero Anxiety & Calm</h3>
-          <p>We work at your pet's speed. No stressful barking from dozens of dogs; your pet gets individual focus and comforting pauses.</p>
-        </div>
-
-        <div class="help-card">
-          <div class="help-icon-bubble">🛡️</div>
-          <h3>Early Health Detection</h3>
-          <p>Hands-on grooming lets us detect skin lumps, ear infections, hot spots, and fleas before they turn into costly veterinary visits.</p>
-        </div>
-
-        <div class="help-card">
-          <div class="help-icon-bubble">✨</div>
-          <h3>Matting & Pain Relief</h3>
-          <p>Matted fur pulls painfully on sensitive skin. We gently untangle and clip mats, restoring your pet's free, joyful movement.</p>
-        </div>
-
-        <div class="help-card">
-          <div class="help-icon-bubble">🐾</div>
-          <h3>Joint & Paw Comfort</h3>
-          <p>Overgrown nails twist toes and strain joints. Our nail trims and pad balms ensure smooth, painless running and walking.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       COMMUNITY VOICE & STAR RATINGS (CLIENT REVIEWS & STATUS)
-       ========================================================================== -->
-  <section class="community-section" id="reviews">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-badge orange">Community Voice & Stars</div>
-        <h2 class="section-title">What Pet Parents Say About <span>Emanuel</span></h2>
-        <p class="section-subtitle">
-          Our clients make this website have its own voice and status! Read authentic feedback, see ratings, and add your own review to the wall.
-        </p>
-      </div>
-
-      <!-- Overall Scoreboard Card -->
-      <div class="community-stats-card">
-        <div class="overall-score-box">
-          <div class="score-huge" id="overallScoreNumber">4.9</div>
-          <div class="score-stars">★★★★★</div>
-          <div class="score-subtitle" id="reviewCountText">Based on 150+ verified pet parent reviews</div>
-        </div>
-
-        <!-- Rating Bars Breakdown -->
-        <div class="score-breakdown-bars">
-          <div class="bar-row">
-            <span class="bar-label">5 ★</span>
-            <div class="bar-track">
-              <div class="bar-fill" id="barFill5" style="width: 95%;"></div>
-            </div>
-            <span class="bar-percent">95%</span>
-          </div>
-          <div class="bar-row">
-            <span class="bar-label">4 ★</span>
-            <div class="bar-track">
-              <div class="bar-fill" id="barFill4" style="width: 5%;"></div>
-            </div>
-            <span class="bar-percent">5%</span>
-          </div>
-          <div class="bar-row">
-            <span class="bar-label">3 ★</span>
-            <div class="bar-track">
-              <div class="bar-fill" id="barFill3" style="width: 0%;"></div>
-            </div>
-            <span class="bar-percent">0%</span>
-          </div>
-        </div>
-
-        <!-- Voice Call to Action -->
-        <div class="voice-cta-box">
-          <h4>Have You Visited Us?</h4>
-          <p>Share your experience and give your pet a voice on our official website!</p>
-          <button type="button" class="btn btn-primary btn-sm" onclick="openModal('reviewModal')">
-            ⭐ Write a Review
-          </button>
-        </div>
-      </div>
-
-      <!-- Filter Reviews -->
-      <div class="reviews-filter-bar">
-        <div class="review-filter-buttons">
-          <button class="review-filter-btn active" data-review-filter="all">All Reviews</button>
-          <button class="review-filter-btn" data-review-filter="dog">🐶 Dog Parents</button>
-          <button class="review-filter-btn" data-review-filter="cat">🐱 Cat Parents</button>
-        </div>
-        <button type="button" class="btn btn-outline btn-sm" onclick="openModal('reviewModal')">
-          + Add Your Pet's Voice
-        </button>
-      </div>
-
-      <!-- Reviews Cards Grid (Populated dynamically by modern-grooming.js) -->
-      <div class="reviews-grid" id="reviewsContainer">
-        <!-- Rendered by JS -->
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       PHOTO GALLERY / HAPPY TAILS
-       ========================================================================== -->
-  <section class="gallery-section" id="gallery">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-badge">Happy Tails Gallery</div>
-        <h2 class="section-title">Fresh, Fluffy & <span>Camera-Ready</span></h2>
-        <p class="section-subtitle">
-          See the radiant smiles, silky coats, and proud postures of our regular canine and feline visitors.
-        </p>
-      </div>
-
-      <div class="gallery-grid">
-        <div class="gallery-item">
-          <img src="./Grooming/assets/img/Whitepoodle.PNG" alt="Groomed White Poodle">
-          <div class="gallery-overlay">
-            <span class="gallery-pet-name">Bella</span>
-            <span class="gallery-pet-service">Show Poodle Precision Cut</span>
-          </div>
-        </div>
-        <div class="gallery-item">
-          <img src="./Grooming/assets/img/bulldog.jpg" alt="Bulldog Spa Bath">
-          <div class="gallery-overlay">
-            <span class="gallery-pet-name">Winston</span>
-            <span class="gallery-pet-service">Hydrobath & Wrinkle Cleansing</span>
-          </div>
-        </div>
-        <div class="gallery-item">
-          <img src="./Grooming/assets/img/yorki.jpg" alt="Yorkie Puppy Cut">
-          <div class="gallery-overlay">
-            <span class="gallery-pet-name">Oliver</span>
-            <span class="gallery-pet-service">Teddy Bear Styling</span>
-          </div>
-        </div>
-        <div class="gallery-item">
-          <img src="./Grooming/assets/png/cute-fluffy-cats-playing-png.png" alt="Fluffy Groomed Cat">
-          <div class="gallery-overlay">
-            <span class="gallery-pet-name">Milo & Cleo</span>
-            <span class="gallery-pet-service">Gentle Deshedding Spa</span>
-          </div>
-        </div>
-        <div class="gallery-item">
-          <img src="./Grooming/assets/img/puppyeyes1.jpg" alt="Happy Fluffy Puppy">
-          <div class="gallery-overlay">
-            <span class="gallery-pet-name">Charlie</span>
-            <span class="gallery-pet-service">Puppy First Groom</span>
-          </div>
-        </div>
-        <div class="gallery-item">
-          <img src="./Grooming/assets/img/dog2.jpg" alt="Terrier Groomed">
-          <div class="gallery-overlay">
-            <span class="gallery-pet-name">Daisy</span>
-            <span class="gallery-pet-service">Full Summer Trim</span>
-          </div>
-        </div>
-        <div class="gallery-item">
-          <img src="./Grooming/assets/img/puppysmile1.jpg" alt="Smiling Golden Mix">
-          <div class="gallery-overlay">
-            <span class="gallery-pet-name">Cooper</span>
-            <span class="gallery-pet-service">Deshedding & Paw Pedicure</span>
-          </div>
-        </div>
-        <div class="gallery-item">
-          <img src="./Grooming/assets/img/mixed.jpg" alt="Happy Groomed Dog">
-          <div class="gallery-overlay">
-            <span class="gallery-pet-name">Rocky</span>
-            <span class="gallery-pet-service">Full Bath & Scissor Touchup</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       FUTURE CLIENT ACCOUNT PREVIEW ("SEE PROGRESS, AMOUNT, HISTORY")
-       ========================================================================== -->
-  <section class="portal-preview-section" id="portal">
-    <div class="container">
-      <div class="portal-grid">
-        <!-- Content Column -->
-        <div class="portal-content">
-          <div class="section-badge orange">Coming Soon & Early Access</div>
-          <h2>The <span>Emanuel Client Portal</span></h2>
-          <p>
-            We are building an innovative online experience so you can follow your pet's spa day directly from your phone! Keep track of your dog's live progress, view past service amounts, receipts, and book your next appointment in seconds.
-          </p>
-
-          <div class="portal-features-list">
-            <div class="portal-feature-item">
-              <div class="feature-check-icon">📸</div>
-              <div class="feature-text">
-                <h4>Live Dog & Cat Grooming Progress</h4>
-                <p>See when your pet has finished their bath, when precision styling starts, and when they are ready for pickup.</p>
-              </div>
-            </div>
-
-            <div class="portal-feature-item">
-              <div class="feature-check-icon">🧾</div>
-              <div class="feature-text">
-                <h4>Transparent History & Invoicing</h4>
-                <p>Track your grooming history, view exact amounts paid, and download digital invoices anytime.</p>
-              </div>
-            </div>
-
-            <div class="portal-feature-item">
-              <div class="feature-check-icon">🐕</div>
-              <div class="feature-text">
-                <h4>Digital Pet Care Passport</h4>
-                <p>Store your pet's haircut preferences, allergies, sensitive spots, and favorite groomer notes.</p>
-              </div>
-            </div>
-          </div>
-
-          <button type="button" class="btn btn-primary btn-lg" onclick="openModal('portalModal')">
-            🐾 Preview Portal / Join Account List
-          </button>
-        </div>
-
-        <!-- Interactive Mockup Simulator -->
-        <div class="portal-mockup-card">
-          <div class="mockup-header">
-            <div class="mockup-dots">
-              <span></span><span></span><span></span>
-            </div>
-            <span class="mockup-title">Emanuel Pet Portal • Live Dashboard</span>
-            <span style="font-size: 0.8rem; color: #10b981;">● Online</span>
-          </div>
-
-          <div class="mockup-body">
-            <!-- Active Pet Progress Card -->
-            <div class="pet-progress-box">
-              <div class="pet-progress-header">
-                <div class="pet-profile-mini">
-                  <img src="./Grooming/assets/img/puppysmile1.jpg" alt="Max" class="pet-avatar-mini">
-                  <div class="pet-mini-details">
-                    <h4>Max (Golden Doodle)</h4>
-                    <p>Owner: Sarah Jenkins • Service: Full Haircut</p>
-                  </div>
-                </div>
-                <div class="status-badge-active" id="trackerStatusBadge">
-                  Step 3: Fluff Blow-Dry & Scissor Trim
-                </div>
-              </div>
-
-              <!-- Interactive Timeline (Clickable steps!) -->
-              <div class="groom-timeline">
-                <div class="timeline-step completed" title="Click to view step">
-                  <div class="timeline-step-icon">1</div>
-                  <div class="timeline-step-name">Check-in</div>
-                </div>
-                <div class="timeline-step completed" title="Click to view step">
-                  <div class="timeline-step-icon">2</div>
-                  <div class="timeline-step-name">Bath & Spa</div>
-                </div>
-                <div class="timeline-step current" title="Click to view step">
-                  <div class="timeline-step-icon">3</div>
-                  <div class="timeline-step-name">Scissor Trim</div>
-                </div>
-                <div class="timeline-step" title="Click to view step">
-                  <div class="timeline-step-icon">4</div>
-                  <div class="timeline-step-name">Ready!</div>
-                </div>
-              </div>
-
-              <p style="font-size: 0.82rem; color: #d1d5db; margin-top: 10px;" id="trackerStatusDesc">
-                Drying with low-noise warm air and precision hand scissoring for that perfect rounded teddy bear look ✂️
-              </p>
-            </div>
-
-            <!-- History and Amount Preview Cards -->
-            <div class="mockup-history-preview">
-              <div class="history-card-mini">
-                <h5>Current Service Amount</h5>
-                <div class="val-huge">$65.00</div>
-                <p>Full Grooming + Blueberry Facial</p>
-              </div>
-
-              <div class="history-card-mini">
-                <h5>Last Completed Visit</h5>
-                <div class="val-huge">June 14</div>
-                <p>Previous Amount: $65.00 (Paid ✓)</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       APPOINTMENT REQUEST & CONTACT SECTION
-       ========================================================================== -->
-  <section class="contact-section" id="contact">
-    <div class="container">
-      <div class="contact-grid">
-        <!-- Form Column -->
-        <div class="booking-form-card">
-          <div class="section-badge">Fast & Easy</div>
-          <h3>Request An Appointment</h3>
-          <p>Fill out the form below and Emanuel will call or text you to confirm your pet's appointment time.</p>
-
-          <form id="appointmentBookingForm">
-            <div class="form-row">
-              <div class="form-group">
-                <label for="bookOwnerName">Your Name *</label>
-                <input type="text" id="bookOwnerName" class="form-control" placeholder="e.g. Maria Gonzalez" required>
-              </div>
-              <div class="form-group">
-                <label for="bookPhone">Phone Number *</label>
-                <input type="tel" id="bookPhone" class="form-control" placeholder="e.g. (323) 555-0199" required>
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label for="bookPetName">Pet's Name *</label>
-                <input type="text" id="bookPetName" class="form-control" placeholder="e.g. Toby" required>
-              </div>
-              <div class="form-group">
-                <label for="bookPetType">Pet Type *</label>
-                <select id="bookPetType" class="form-control" required>
-                  <option value="dog">🐶 Dog</option>
-                  <option value="cat">🐱 Cat</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label for="bookPetBreed">Breed & Size</label>
-                <input type="text" id="bookPetBreed" class="form-control" placeholder="e.g. Poodle, 15 lbs">
-              </div>
-              <div class="form-group">
-                <label for="bookService">Desired Service *</label>
-                <select id="bookService" class="form-control" required>
-                  <option value="Full Haircut & Styling">Full Haircut & Scissor Styling</option>
-                  <option value="Hydro-Bath & Blowout">The Hydro-Bath & Blowout</option>
-                  <option value="Gentle Cat Grooming Suite">Gentle Cat Grooming Suite</option>
-                  <option value="Deep De-Shedding Therapy">Deep De-Shedding Therapy</option>
-                  <option value="Puppy / Kitten First Groom">Puppy / Kitten First Groom</option>
-                  <option value="A La Carte Add-on">A La Carte Spa / Nails Only</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label for="bookDate">Preferred Date</label>
-                <input type="date" id="bookDate" class="form-control">
-              </div>
-              <div class="form-group">
-                <label for="bookTime">Preferred Time</label>
-                <select id="bookTime" class="form-control">
-                  <option value="Morning (8:00 AM - 12:00 PM)">Morning (8:00 AM - 12:00 PM)</option>
-                  <option value="Afternoon (12:00 PM - 5:00 PM)">Afternoon (12:00 PM - 5:00 PM)</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="bookNotes">Special Notes (Nervous, allergies, senior pet?)</label>
-              <textarea id="bookNotes" class="form-control" placeholder="Tell us anything that will help your pet feel more comfortable..."></textarea>
-            </div>
-
-            <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
-              🐾 Submit Appointment Request
-            </button>
-          </form>
-        </div>
-
-        <!-- Contact Info & Map Column -->
-        <div class="contact-info-col">
-          <div class="contact-card-box">
-            <h3 style="font-family: var(--font-display); font-size: 1.4rem; color: var(--dark); margin-bottom: 20px;">
-              Visit Or Call Us
-            </h3>
-
-            <div class="contact-info-item">
-              <div class="contact-icon-bubble">📍</div>
-              <div class="contact-info-text">
-                <h4>Our Location</h4>
-                <p>Emanuel Pet Grooming<br>East Los Angeles & Montebello Area, California</p>
-              </div>
-            </div>
-
-            <div class="contact-info-item">
-              <div class="contact-icon-bubble">📞</div>
-              <div class="contact-info-text">
-                <h4>Phone & WhatsApp</h4>
-                <p><a href="tel:3238957164">(323) 895-7164</a></p>
-                <p style="font-size: 0.8rem; color: #10b981;">✓ Call or text for quick inquiries</p>
-              </div>
-            </div>
-
-            <div class="contact-info-item">
-              <div class="contact-icon-bubble">🕒</div>
-              <div class="contact-info-text">
-                <h4>Working Hours</h4>
-                <p>Monday - Saturday: 8:00 AM - 5:00 PM<br>Sunday: By Special Appointment Only</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Google Maps Embed -->
-          <div class="map-embed-wrapper">
-            <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13225.527490673092!2d-118.1511277!3d34.0340742!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x33d2ca041ae08cc9!2sEmanuel%20Pet%20Grooming!5e0!3m2!1sen!2sus!4v1662597404668!5m2!1sen!2sus" 
-              allowfullscreen="" 
-              loading="lazy" 
-              referrerpolicy="no-referrer-when-downgrade" 
-              title="Emanuel Pet Grooming Google Maps Location">
-            </iframe>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       FREQUENTLY ASKED QUESTIONS
-       ========================================================================== -->
-  <section class="faq-section">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-badge">Got Questions?</div>
-        <h2 class="section-title">Frequently Asked <span>Questions</span></h2>
-        <p class="section-subtitle">
-          Everything pet parents want to know before their first visit to Emanuel Pet Grooming.
-        </p>
-      </div>
-
-      <div class="faq-accordion">
-        <div class="faq-item active">
-          <div class="faq-question">
-            <span>How is Emanuel Pet Grooming different from retail pet stores?</span>
-            <div class="faq-toggle-icon">+</div>
-          </div>
-          <div class="faq-answer">
-            We operate in a calm, sanitary home-style sanctuary without the chaos, deafening barking, and high turnover of big box retail stores. We provide gentle, 1-on-1 personalized attention with low noise and regular comfort breaks, ensuring your pet feels safe and loved.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>Do you groom both cats and dogs?</span>
-            <div class="faq-toggle-icon">+</div>
-          </div>
-          <div class="faq-answer">
-            Yes! We groom dogs of all breeds and sizes, as well as cats. For our feline guests, we maintain an especially quiet atmosphere with soft handling, gentle sponge baths or waterless foams, deshedding, sanitary clips, or full lion cuts.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>What if my pet is nervous, aggressive, or has anxiety?</span>
-            <div class="faq-toggle-icon">+</div>
-          </div>
-          <div class="faq-answer">
-            Patience is our specialty. We never force a terrified pet through a scary procedure. We take time to build trust, use positive reinforcement, and take soothing breaks whenever needed. Please let us know when booking so we can schedule ample time.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>How long does a grooming appointment take?</span>
-            <div class="faq-toggle-icon">+</div>
-          </div>
-          <div class="faq-answer">
-            Most appointments take between 1.5 to 2.5 hours depending on your pet's size, coat condition, and required styling. We will text or call you 15-20 minutes before your pet is ready for pickup!
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>What vaccines are required before grooming?</span>
-            <div class="faq-toggle-icon">+</div>
-          </div>
-          <div class="faq-answer">
-            For the health and safety of all our furry guests, up-to-date Rabies vaccination is required for all dogs and cats. Bordetella (kennel cough) and DHPP are strongly recommended for dogs.
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       FOOTER
-       ========================================================================== -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-top">
-        <!-- Brand Column -->
-        <div class="footer-brand">
-          <div class="site-logo">
-            <div class="logo-icon-wrap">🐾</div>
-            <div class="logo-text">
-              <span class="logo-title">Emanuel <span>Pet Grooming</span></span>
-              <span class="logo-tagline" style="color: #9ca3af;">Dogs & Cats Gentle Care</span>
-            </div>
-          </div>
-          <p>
-            Dedicated to gentle, loving, and patient pet grooming in East Los Angeles. Treating every fur baby with the tenderness, dignity, and beauty they deserve.
-          </p>
-          <div class="footer-social-links">
-            <a href="https://instagram.com" target="_blank" rel="noopener" class="social-icon-btn" title="Instagram">📷</a>
-            <a href="https://wa.me/13238957164" target="_blank" rel="noopener" class="social-icon-btn" title="WhatsApp">💬</a>
-            <a href="tel:3238957164" class="social-icon-btn" title="Phone">📞</a>
-            <a href="https://yelp.com" target="_blank" rel="noopener" class="social-icon-btn" title="Yelp">⭐</a>
-          </div>
-        </div>
-
-        <!-- Quick Links -->
-        <div class="footer-col">
-          <h4>Explore</h4>
-          <ul class="footer-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About Emanuel</a></li>
-            <li><a href="#services">Dogs & Cats Services</a></li>
-            <li><a href="#reviews">Client Stars & Reviews</a></li>
-            <li><a href="#gallery">Happy Tails Gallery</a></li>
-            <li><a href="#portal">Client Account Portal</a></li>
+          <ul class="hero-facts reveal" data-hero style="--d:.85s">
+            <li><b>Dogs &amp; cats</b><span>All sizes</span></li>
+            <li><b>Mon–Sat</b><span>8 am – 5 pm</span></li>
+            <li><b>10+ years</b><span>in East LA</span></li>
           </ul>
         </div>
 
-        <!-- Services Links -->
-        <div class="footer-col">
-          <h4>Services</h4>
-          <ul class="footer-links">
-            <li><a href="#services">Hydro-Bath & Blowout</a></li>
-            <li><a href="#services">Full Breed Styling</a></li>
-            <li><a href="#services">Gentle Cat Suite</a></li>
-            <li><a href="#services">De-Shedding Treatment</a></li>
-            <li><a href="#services">Puppy First Groom</a></li>
-            <li><a href="#services">Teeth & Nails Spa</a></li>
+        <!-- Signature: customer photos inside soap bubbles -->
+        <div class="hero-bubbles" id="heroBubbles">
+          <figure class="pbubble pb-a" data-depth="-1" data-mouse="18" style="--delay:0s;--dur:9s">
+            <div class="pb-float">
+              <img src="./Grooming/assets/img/happy-tails/doodle-bandana-768.webp" srcset="./Grooming/assets/img/happy-tails/doodle-bandana-400.webp 400w, ./Grooming/assets/img/happy-tails/doodle-bandana-768.webp 768w" sizes="(max-width: 900px) 70vw, 34vw" width="768" height="1024" fetchpriority="high" alt="Smiling woman in glasses holding a fluffy golden dog wearing a blue bandana, in front of the studio's green flower wall" style="--pos:50% 34%">
+              <i class="gloss"></i>
+            </div>
+          </figure>
+          <figure class="pbubble pb-b" data-depth="-3" data-mouse="30" style="--delay:-3s;--dur:11s">
+            <div class="pb-float">
+              <img src="./Grooming/assets/img/happy-tails/poodle-hearts-768.webp" srcset="./Grooming/assets/img/happy-tails/poodle-hearts-400.webp 400w, ./Grooming/assets/img/happy-tails/poodle-hearts-768.webp 768w" sizes="(max-width: 900px) 40vw, 20vw" width="768" height="1024" alt="Smiling woman holding a freshly groomed white poodle with pink bows in front of a heart-patterned backdrop" style="--pos:50% 46%">
+              <i class="gloss"></i>
+            </div>
+          </figure>
+          <figure class="pbubble pb-c" data-depth="2" data-mouse="10" style="--delay:-5s;--dur:10s">
+            <div class="pb-float">
+              <img src="./Grooming/assets/img/happy-tails/pug-smile-768.webp" srcset="./Grooming/assets/img/happy-tails/pug-smile-400.webp 400w" sizes="(max-width: 900px) 26vw, 14vw" width="768" height="1024" alt="A happy pug with its tongue out, wearing a floral bandana" style="--pos:20% 56%">
+              <i class="gloss"></i>
+            </div>
+          </figure>
+          <figure class="pbubble pb-d" data-depth="-4" data-mouse="38" style="--delay:-2s;--dur:8s">
+            <div class="pb-float">
+              <img src="./Grooming/assets/img/happy-tails/tan-pup-stpatricks-400.webp" width="400" height="533" alt="A small golden-tan dog in a shamrock bandana" style="--pos:60% 38%">
+              <i class="gloss"></i>
+            </div>
+          </figure>
+        </div>
+      </div>
+
+      <a class="scroll-cue" href="#about" aria-label="Scroll to the studio section"><span>Scroll</span><i></i></a>
+    </section>
+
+    <!-- ===== Marquee ===== -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-skew" id="marqueeSkew">
+        <div class="marquee-track" id="marqueeTrack">
+          <span>Warm hydrobaths</span><span>Hand-scissored styling</span><span>Gentle deshedding</span><span>Cat grooming</span><span>Puppy &amp; kitten firsts</span><span>Nails &amp; paw balm</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== About ===== -->
+    <section class="section about" id="about">
+      <div class="wrap">
+        <p class="eyebrow reveal">The studio</p>
+        <p class="statement" id="statement">
+          We’re not a rushed, noisy, conveyor-belt pet factory. We’re a calm grooming studio where every dog and cat gets <em>patience, clean tools and gentle hands</em> — and leaves feeling loved.
+        </p>
+
+        <div class="about-grid">
+          <div class="about-visual">
+            <figure class="arch" data-img-parallax>
+              <img src="./Grooming/assets/img/happy-tails/cavapoo-tote-768.webp" srcset="./Grooming/assets/img/happy-tails/cavapoo-tote-400.webp 400w, ./Grooming/assets/img/happy-tails/cavapoo-tote-768.webp 768w" sizes="(max-width: 900px) 80vw, 36vw" width="768" height="1024" loading="lazy" decoding="async" alt="Smiling man in a green shirt holding a small fluffy dog and a pink tote bag, in front of the studio's pink arch backdrop">
+            </figure>
+            <div class="seal" data-depth="-2" aria-hidden="true">
+              <svg viewBox="0 0 120 120" class="seal-text">
+                <defs><path id="sealPath" d="M60 60m-44 0a44 44 0 1 1 88 0a44 44 0 1 1-88 0"/></defs>
+                <text><textPath href="#sealPath" startOffset="0">Celebrating 10+ years · of happy tails ·</textPath></text>
+              </svg>
+              <svg class="seal-paw" viewBox="0 0 64 64"><use href="#i-paw"/></svg>
+            </div>
+          </div>
+
+          <div class="about-copy">
+            <p class="about-lead reveal">Your pet is treated like one of our own. They get time to rest, stretch their legs and drink fresh filtered water, so the whole day feels joyful instead of stressful.</p>
+            <ul class="pillars">
+              <li class="reveal"><h3>Never rushed</h3><p>We read your pet’s body language and take soothing breaks whenever they need one.</p></li>
+              <li class="reveal" style="--d:.08s"><h3>Cats &amp; dogs welcome</h3><p>A gentle, dedicated approach for felines and canines of every size.</p></li>
+              <li class="reveal" style="--d:.16s"><h3>Spotless tools</h3><p>Tables, shears, tubs and rest areas are disinfected between visits.</p></li>
+              <li class="reveal" style="--d:.24s"><h3>Straight talk</h3><p>Clear updates, plus tips for keeping your pet’s coat looking great at home.</p></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Services (pinned horizontal rail on desktop) ===== -->
+    <section class="services" id="services" data-hscroll>
+      <div class="hscroll-pin">
+        <div class="wrap services-head">
+          <p class="eyebrow eyebrow-light reveal">Services</p>
+          <h2 class="h2 reveal">Six ways to <em>spoil</em> them.</h2>
+          <p class="services-sub reveal">Every visit starts with a conversation about your pet’s coat, comfort and personality.</p>
+        </div>
+
+        <div class="rail-viewport">
+          <div class="rail" id="rail" tabindex="0" role="region" aria-label="Services, scroll sideways to browse">
+            <article class="card">
+              <div class="card-top"><span class="glyph"><svg aria-hidden="true"><use href="#g-bath"/></svg></span><span class="tag">Dogs</span></div>
+              <h3>The Hydro-Bath &amp; Blowout</h3>
+              <p class="price"><small>From</small> $45</p>
+              <p class="card-desc">A deep, refreshing spa bath that loosens dirt, cleanses skin and leaves coats soft and fragrant.</p>
+              <ul class="checks">
+                <li>Warm hydro-massage bath &amp; organic shampoo</li>
+                <li>Tearless blueberry facial scrub</li>
+                <li>Ear cleaning &amp; gentle flush</li>
+                <li>Nail clip &amp; sanitary trim</li>
+                <li>Warm hand blow-dry &amp; brush-out</li>
+              </ul>
+              <div class="card-foot"><span>About 60–90 min</span><a href="#visit">Book this <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+            </article>
+
+            <article class="card card-feature">
+              <div class="card-top"><span class="glyph"><svg aria-hidden="true"><use href="#g-scissors"/></svg></span><span class="tag tag-blush">Dogs · Signature</span></div>
+              <h3>Full Haircut &amp; Scissor Styling</h3>
+              <p class="price"><small>From</small> $65</p>
+              <p class="card-desc">Our full hydro-bath plus a precision breed cut, teddy-bear trim or custom summer style.</p>
+              <ul class="checks">
+                <li>Everything in the Hydro-Bath &amp; Blowout</li>
+                <li>Hand-scissored face, paws &amp; tail</li>
+                <li>Customized full-body trim</li>
+                <li>Paw-pad clearing &amp; smoothing</li>
+                <li>Cologne mist &amp; a bandana</li>
+              </ul>
+              <div class="card-foot"><span>About 90–120 min</span><a href="#visit">Book this <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+            </article>
+
+            <article class="card">
+              <div class="card-top"><span class="glyph"><svg aria-hidden="true"><use href="#g-cat"/></svg></span><span class="tag">Cats</span></div>
+              <h3>Gentle Cat Grooming Suite</h3>
+              <p class="price"><small>From</small> $60</p>
+              <p class="card-desc">Quiet, feline-specialized care: gentle deshedding, a sanitary trim, or a full lion cut.</p>
+              <ul class="checks">
+                <li>Quiet, stress-free handling</li>
+                <li>Waterless or gentle sponge bath</li>
+                <li>Thorough undercoat brush-out</li>
+                <li>Nail trim &amp; ear wipe</li>
+                <li>Optional lion cut or sanitary trim</li>
+              </ul>
+              <div class="card-foot"><span>About 45–75 min</span><a href="#visit">Book this <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+            </article>
+
+            <article class="card">
+              <div class="card-top"><span class="glyph"><svg aria-hidden="true"><use href="#g-brush"/></svg></span><span class="tag">Dogs &amp; cats</span></div>
+              <h3>Deep De-Shedding Therapy</h3>
+              <p class="price"><small>From</small> $55</p>
+              <p class="card-desc">Cuts down loose hair around your home by lifting the undercoat before it sheds.</p>
+              <ul class="checks">
+                <li>Undercoat-loosening soak</li>
+                <li>High-velocity blow-out of trapped dander</li>
+                <li>Multi-step carding &amp; rake brush-out</li>
+                <li>Skin moisturizing &amp; coat shine</li>
+              </ul>
+              <div class="card-foot"><span>About 75–90 min</span><a href="#visit">Book this <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+            </article>
+
+            <article class="card">
+              <div class="card-top"><span class="glyph"><svg aria-hidden="true"><use href="#g-paw"/></svg></span><span class="tag">Young pets</span></div>
+              <h3>Puppy &amp; Kitten First Groom</h3>
+              <p class="price"><small>From</small> $40</p>
+              <p class="card-desc">A positive, treat-filled first visit that teaches young pets grooming is safe and full of cuddles.</p>
+              <ul class="checks">
+                <li>Slow intro to water &amp; the dryer</li>
+                <li>Gentle paw &amp; nail handling</li>
+                <li>Light face &amp; sanitary trim</li>
+                <li>Treats &amp; plenty of cuddles</li>
+              </ul>
+              <div class="card-foot"><span>About 45 min</span><a href="#visit">Book this <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+            </article>
+
+            <article class="card">
+              <div class="card-top"><span class="glyph"><svg aria-hidden="true"><use href="#g-spark"/></svg></span><span class="tag">Add-ons</span></div>
+              <h3>À la carte Wellness</h3>
+              <p class="price"><small>From</small> $10<span class="price-to"> – $25</span></p>
+              <p class="card-desc">Quick hygiene add-ons for fresh breath, smooth nails and happy paws.</p>
+              <ul class="checks">
+                <li>Enzymatic teeth brushing ($12)</li>
+                <li>Nail filing, smooth Dremel finish ($15)</li>
+                <li>Healing shea-butter paw balm ($10)</li>
+                <li>Medicated flea &amp; tick bath ($20)</li>
+              </ul>
+              <div class="card-foot"><span>About 15–25 min</span><a href="#visit">Add to a visit <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+            </article>
+
+            <aside class="card card-note">
+              <h3>Every pet is different.</h3>
+              <p>Prices vary with breed, size, coat condition and temperament. Call or text for a free quote.</p>
+              <a class="btn btn-light" href="tel:+13238957164"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg>Get a free quote</a>
+            </aside>
+          </div>
+          <div class="rail-progress" aria-hidden="true"><span id="railProgress"></span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== The visit (scroll-scrubbed bath) ===== -->
+    <section class="section journey" id="journey">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow reveal">The visit</p>
+          <h2 class="h2 reveal">A day at the <em>studio.</em></h2>
+        </div>
+
+        <div class="journey-grid">
+          <div class="journey-visual">
+            <div class="tub" id="tub" role="img" aria-label="A tub that fills with water as the visit progresses">
+              <div class="tub-water"><i class="wave"></i></div>
+              <span class="tub-b tb1"></span><span class="tub-b tb2"></span><span class="tub-b tb3"></span><span class="tub-b tb4"></span><span class="tub-b tb5"></span>
+              <div class="tub-label"><small id="tubStep">Step 1 of 4</small><b id="tubName">Check-in</b></div>
+            </div>
+          </div>
+
+          <ol class="steps" id="steps">
+            <li class="step" data-name="Check-in">
+              <span class="step-n">1</span>
+              <h3>Hello &amp; check-in</h3>
+              <p>We meet your pet, talk through the style you want, and note anything we should know: nerves, allergies, sore joints.</p>
+            </li>
+            <li class="step" data-name="Hydrobath">
+              <span class="step-n">2</span>
+              <h3>Warm hydrobath</h3>
+              <p>Organic shampoo, a gentle hydro-massage, a tearless face scrub and an ear clean.</p>
+            </li>
+            <li class="step" data-name="Dry &amp; style">
+              <span class="step-n">3</span>
+              <h3>Dry &amp; scissor</h3>
+              <p>A warm hand blow-dry, then hand-scissored face, paws and tail for the finished look.</p>
+            </li>
+            <li class="step" data-name="Ready!">
+              <span class="step-n">4</span>
+              <h3>Ready for pickup</h3>
+              <p>We text or call 15–20 minutes before your pet is ready, so they walk out fresh, fluffy and wagging.</p>
+              <a class="soon-link" href="#portal">Soon: follow along live in the client portal <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Happy tails gallery ===== -->
+    <section class="section tails" id="happy-tails">
+      <div class="wrap">
+        <div class="section-head section-head-center">
+          <p class="eyebrow reveal">Happy tails</p>
+          <h2 class="h2 reveal">Real pickups, <em>real smiles.</em></h2>
+          <p class="section-sub reveal">A few of the faces who’ve left the studio looking their best. Tap a photo to see it bigger.</p>
+        </div>
+
+        <div class="tails-grid" id="tailsGrid">
+          <div class="tails-col">
+            <button class="shot" type="button" data-caption="Fluffy and bandana-ready"><span class="shot-frame" data-img-parallax><img src="./Grooming/assets/img/happy-tails/doodle-bandana-768.webp" srcset="./Grooming/assets/img/happy-tails/doodle-bandana-400.webp 400w, ./Grooming/assets/img/happy-tails/doodle-bandana-768.webp 768w" sizes="(max-width: 760px) 46vw, 30vw" width="768" height="1024" loading="lazy" decoding="async" alt="Smiling woman in glasses holding a fluffy golden dog wearing a blue bandana, in front of the studio's green flower wall"></span><span class="shot-cap"><small>Pickup day</small>Fluffy and bandana-ready</span></button>
+            <button class="shot" type="button" data-caption="Valentine’s season pickup"><span class="shot-frame" data-img-parallax><img src="./Grooming/assets/img/happy-tails/poodle-hearts-768.webp" srcset="./Grooming/assets/img/happy-tails/poodle-hearts-400.webp 400w, ./Grooming/assets/img/happy-tails/poodle-hearts-768.webp 768w" sizes="(max-width: 760px) 46vw, 30vw" width="768" height="1024" loading="lazy" decoding="async" alt="Smiling woman holding a freshly groomed white poodle with pink bows in front of a heart-patterned backdrop"></span><span class="shot-cap"><small>Valentine’s</small>Pink bows, white curls</span></button>
+            <button class="shot" type="button" data-caption="Two fluffs, one big smile"><span class="shot-frame" data-img-parallax><img src="./Grooming/assets/img/happy-tails/two-fluffs-768.webp" srcset="./Grooming/assets/img/happy-tails/two-fluffs-400.webp 400w, ./Grooming/assets/img/happy-tails/two-fluffs-768.webp 768w" sizes="(max-width: 760px) 46vw, 30vw" width="768" height="1024" loading="lazy" decoding="async" alt="Smiling woman holding a white fluffy dog with a blue bow and a black fluffy dog in a bandana"></span><span class="shot-cap"><small>Pickup day</small>Two fluffs, one big smile</span></button>
+          </div>
+
+          <div class="tails-col" data-depth="-2">
+            <button class="shot" type="button" data-caption="Puppy pickup, whole family"><span class="shot-frame" data-img-parallax><img src="./Grooming/assets/img/happy-tails/puppies-family-768.webp" srcset="./Grooming/assets/img/happy-tails/puppies-family-400.webp 400w, ./Grooming/assets/img/happy-tails/puppies-family-768.webp 768w" sizes="(max-width: 760px) 46vw, 30vw" width="768" height="1024" loading="lazy" decoding="async" alt="Four people each holding a freshly groomed puppy in front of a pink arch backdrop"></span><span class="shot-cap"><small>Puppy day</small>Whole family, four pups</span></button>
+            <button class="shot" type="button" data-caption="That pug tongue, though"><span class="shot-frame" data-img-parallax><img src="./Grooming/assets/img/happy-tails/pug-smile-768.webp" srcset="./Grooming/assets/img/happy-tails/pug-smile-400.webp 400w, ./Grooming/assets/img/happy-tails/pug-smile-768.webp 768w" sizes="(max-width: 760px) 46vw, 30vw" width="768" height="1024" loading="lazy" decoding="async" alt="Man holding a happy pug with its tongue out, wearing a floral bandana"></span><span class="shot-cap"><small>Pickup day</small>That pug tongue, though</span></button>
+            <button class="shot" type="button" data-caption="Fresh blowout, proud parents"><span class="shot-frame" data-img-parallax><img src="./Grooming/assets/img/happy-tails/poodle-couple-768.webp" srcset="./Grooming/assets/img/happy-tails/poodle-couple-400.webp 400w, ./Grooming/assets/img/happy-tails/poodle-couple-768.webp 768w" sizes="(max-width: 760px) 46vw, 30vw" width="768" height="1024" loading="lazy" decoding="async" alt="Smiling couple holding a groomed apricot-red poodle in front of the studio's neon sign"></span><span class="shot-cap"><small>Pickup day</small>Fresh blowout, proud parents</span></button>
+          </div>
+
+          <div class="tails-col" data-depth="-1">
+            <button class="shot" type="button" data-caption="A pink tote for the trip home"><span class="shot-frame" data-img-parallax><img src="./Grooming/assets/img/happy-tails/cavapoo-tote-768.webp" srcset="./Grooming/assets/img/happy-tails/cavapoo-tote-400.webp 400w, ./Grooming/assets/img/happy-tails/cavapoo-tote-768.webp 768w" sizes="(max-width: 760px) 46vw, 30vw" width="768" height="1024" loading="lazy" decoding="async" alt="Smiling man in a green shirt holding a small fluffy dog and a pink tote bag, in front of the studio's pink arch backdrop"></span><span class="shot-cap"><small>Pickup day</small>A pink tote for the trip home</span></button>
+            <button class="shot" type="button" data-caption="Big and small, both bandana-ready"><span class="shot-frame" data-img-parallax><img src="./Grooming/assets/img/happy-tails/husky-and-pup-768.webp" srcset="./Grooming/assets/img/happy-tails/husky-and-pup-400.webp 400w, ./Grooming/assets/img/happy-tails/husky-and-pup-768.webp 768w" sizes="(max-width: 760px) 46vw, 30vw" width="768" height="1024" loading="lazy" decoding="async" alt="Woman with a black-and-white husky mix on a leash beside a boy holding a small gray dog in a bandana"></span><span class="shot-cap"><small>Pickup day</small>Big and small, both bandana-ready</span></button>
+            <button class="shot" type="button" data-caption="St. Patrick’s Day pickup"><span class="shot-frame" data-img-parallax><img src="./Grooming/assets/img/happy-tails/tan-pup-stpatricks-768.webp" srcset="./Grooming/assets/img/happy-tails/tan-pup-stpatricks-400.webp 400w, ./Grooming/assets/img/happy-tails/tan-pup-stpatricks-768.webp 768w" sizes="(max-width: 760px) 46vw, 30vw" width="768" height="1024" loading="lazy" decoding="async" alt="Smiling woman holding a golden-tan small dog in a shamrock bandana in front of a St. Patrick's Day backdrop"></span><span class="shot-cap"><small>St. Patrick’s Day</small>Lucky pup, fresh cut</span></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Client portal teaser ===== -->
+    <section class="section portal" id="portal">
+      <div class="wrap portal-grid">
+        <div class="portal-copy">
+          <p class="eyebrow eyebrow-light reveal">Client portal</p>
+          <p class="neon" aria-hidden="true">Coming soon</p>
+          <h2 class="h2 reveal">Your pet’s grooming life, <em>all in one place.</em></h2>
+          <p class="portal-sub reveal">We’re building a private portal for pet parents. It isn’t live yet, and this is what’s on the way.</p>
+
+          <ul class="feature-list">
+            <li class="reveal"><span class="f-ico"><svg aria-hidden="true"><use href="#g-spark"/></svg></span><div><h3>Loyalty points <em class="chip">Coming soon</em></h3><p>Earn points with every visit and put them toward future grooms.</p></div></li>
+            <li class="reveal" style="--d:.07s"><span class="f-ico"><svg aria-hidden="true"><use href="#g-bath"/></svg></span><div><h3>Book appointments <em class="chip">Coming soon</em></h3><p>Pick a day and time online, with no phone tag.</p></div></li>
+            <li class="reveal" style="--d:.14s"><span class="f-ico"><svg aria-hidden="true"><use href="#g-brush"/></svg></span><div><h3>Pet history <em class="chip">Coming soon</em></h3><p>See what was done at every visit, plus notes on coat, allergies and preferences.</p></div></li>
+            <li class="reveal" style="--d:.21s"><span class="f-ico"><svg aria-hidden="true"><use href="#g-paw"/></svg></span><div><h3>Grooming progress <em class="chip">Coming soon</em></h3><p>Follow your pet’s day from bath to blow-dry to ready-for-pickup.</p></div></li>
           </ul>
+
+          <div class="portal-cta reveal">
+            <button class="btn btn-light" type="button" data-open-portal><svg class="ico" aria-hidden="true"><use href="#i-lock"/></svg>Client sign-in <em class="chip">Opens soon</em></button>
+            <a class="portal-call" href="tel:+13238957164">Need to book now? Call or text (323) 895-7164</a>
+          </div>
         </div>
 
-        <!-- Hours & Location -->
-        <div class="footer-col">
-          <h4>Hours & Location</h4>
-          <p style="font-size: 0.88rem; color: #9ca3af; margin-bottom: 12px;">
-            📍 East Los Angeles / Montebello, CA
-          </p>
-          <div class="footer-hours-row">
-            <span>Mon - Fri:</span>
-            <span>8:00 AM - 5:00 PM</span>
+        <!-- Phone preview: skeleton UI, no invented data -->
+        <div class="portal-visual" aria-hidden="true">
+          <div class="phone" data-depth="-2" data-tilt>
+            <div class="phone-screen">
+              <div class="phone-notch"></div>
+              <div class="ph-badge">Preview</div>
+              <div class="ph-line ph-w40"></div>
+              <div class="ph-line ph-w60 ph-tall"></div>
+
+              <div class="ph-card ph-points">
+                <svg class="ph-ring" viewBox="0 0 80 80"><circle cx="40" cy="40" r="32" class="r-bg"/><circle cx="40" cy="40" r="32" class="r-fg"/></svg>
+                <div><small>Loyalty points</small><div class="ph-line ph-w70"></div></div>
+              </div>
+
+              <div class="ph-card">
+                <small>Today’s progress</small>
+                <div class="ph-track"><i class="on"></i><i class="on"></i><i class="now"></i><i></i></div>
+                <div class="ph-line ph-w50"></div>
+              </div>
+
+              <div class="ph-card">
+                <small>Next visit</small>
+                <div class="ph-line ph-w60"></div>
+                <div class="ph-pill"></div>
+              </div>
+
+              <div class="ph-card">
+                <small>Visit history</small>
+                <div class="ph-row"><i></i><div class="ph-line ph-w70"></div></div>
+                <div class="ph-row"><i></i><div class="ph-line ph-w50"></div></div>
+              </div>
+            </div>
           </div>
-          <div class="footer-hours-row">
-            <span>Saturday:</span>
-            <span>8:00 AM - 5:00 PM</span>
+          <span class="portal-orb orb-1" data-depth="3"></span>
+          <span class="portal-orb orb-2" data-depth="-3"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Visit / contact ===== -->
+    <section class="section visit" id="visit">
+      <div class="wrap visit-grid">
+        <div class="visit-copy">
+          <p class="eyebrow reveal">Find us</p>
+          <h2 class="h2 reveal">Come say <em>hello.</em></h2>
+          <p class="visit-sub reveal">Call or text to book. We’ll find a time that works for your pet.</p>
+
+          <a class="big-phone reveal" href="tel:+13238957164">(323) 895-7164</a>
+
+          <div class="visit-actions reveal">
+            <a class="btn btn-primary" href="tel:+13238957164"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg>Call</a>
+            <a class="btn btn-ghost" href="sms:+13238957164"><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg>Text</a>
+            <a class="btn btn-ghost" href="https://wa.me/13238957164?text=Hi%20Emanuel%20Pet%20Grooming%2C%20I%27d%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg>WhatsApp</a>
+            <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Emanuel+Pet+Grooming+East+Los+Angeles+CA" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>Directions</a>
           </div>
-          <div class="footer-hours-row">
-            <span>Sunday:</span>
-            <span>By Appointment</span>
+
+          <dl class="hours reveal">
+            <div><dt>Monday – Friday</dt><dd>8:00 am – 5:00 pm</dd></div>
+            <div><dt>Saturday</dt><dd>8:00 am – 5:00 pm</dd></div>
+            <div><dt>Sunday</dt><dd>By appointment</dd></div>
+          </dl>
+          <p class="where reveal"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>East Los Angeles &amp; Montebello, California</p>
+        </div>
+
+        <div class="visit-map">
+          <div class="map-arch" data-depth="1">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13225.527490673092!2d-118.1511277!3d34.0340742!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x33d2ca041ae08cc9!2sEmanuel%20Pet%20Grooming!5e0!3m2!1sen!2sus!4v1662597404668!5m2!1sen!2sus" title="Map showing the location of Emanuel Pet Grooming" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
           </div>
         </div>
       </div>
+    </section>
 
-      <div class="footer-bottom">
-        <div>
-          &copy; <span id="currentYear">2026</span> Emanuel Pet Grooming. All rights reserved.
+    <!-- ===== FAQ ===== -->
+    <section class="section faq" id="faq">
+      <div class="wrap faq-grid">
+        <div class="faq-head">
+          <p class="eyebrow reveal">Good to know</p>
+          <h2 class="h2 reveal">Questions, <em>answered.</em></h2>
         </div>
-        <div>
-          Crafted with love for dogs, cats, and the people who adore them.
+        <div class="faq-list">
+          <details name="faq" open>
+            <summary>How is Emanuel Pet Grooming different from a big-box pet store?</summary>
+            <p>We’re a calm, one-on-one studio, with no wall of barking and no assembly line. Your pet gets individual attention, a relaxed pace and comfort breaks, so the whole visit feels safe.</p>
+          </details>
+          <details name="faq">
+            <summary>Do you groom both cats and dogs?</summary>
+            <p>Yes. We groom dogs of every breed and size, and cats too. For feline guests we keep things especially quiet, with soft handling, gentle sponge baths or waterless foams, deshedding, sanitary trims or full lion cuts.</p>
+          </details>
+          <details name="faq">
+            <summary>What if my pet is nervous or has anxiety?</summary>
+            <p>Patience is our specialty. We never force a frightened pet through something scary. We build trust, use positive reinforcement and take soothing breaks. Tell us when you book so we can set aside extra time.</p>
+          </details>
+          <details name="faq">
+            <summary>How long does a grooming appointment take?</summary>
+            <p>Most appointments take 1.5 to 2.5 hours, depending on your pet’s size, coat condition and the styling you choose. We text or call 15–20 minutes before your pet is ready for pickup.</p>
+          </details>
+          <details name="faq">
+            <summary>What vaccines are required before grooming?</summary>
+            <p>To keep every furry guest safe, an up-to-date rabies vaccination is required for all dogs and cats. Bordetella (kennel cough) and DHPP are strongly recommended for dogs.</p>
+          </details>
         </div>
       </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="footer-word" aria-hidden="true" data-depth="1">Emanuel</div>
+    <div class="wrap footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo"><img src="./Grooming/assets/brand/logo-sm.webp" alt="Emanuel Pet Grooming logo" width="480" height="394" loading="lazy" decoding="async"></div>
+        <p>Gentle, patient dog and cat grooming in East Los Angeles.</p>
+      </div>
+      <div>
+        <h3>Explore</h3>
+        <ul>
+          <li><a href="#about">The studio</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#journey">The visit</a></li>
+          <li><a href="#happy-tails">Happy tails</a></li>
+          <li><a href="#portal">Client portal <em class="chip">Soon</em></a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Hours</h3>
+        <ul class="plain">
+          <li>Mon – Sat · 8 am – 5 pm</li>
+          <li>Sunday · by appointment</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <ul>
+          <li><a href="tel:+13238957164">(323) 895-7164</a></li>
+          <li><a href="sms:+13238957164">Text us</a></li>
+          <li><a href="https://wa.me/13238957164" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li class="plain">East Los Angeles &amp; Montebello, CA</li>
+        </ul>
+      </div>
+    </div>
+    <div class="wrap footer-base">
+      <span>&copy; <span id="year">2026</span> Emanuel Pet Grooming. All rights reserved.</span>
+      <span>Made with bubbles and a lot of love.</span>
     </div>
   </footer>
 
-  <!-- ==========================================================================
-       MODAL 1: WRITE A REVIEW & STAR RATING (COMMUNITY VOICE)
-       ========================================================================== -->
-  <aside class="modal-overlay" id="reviewModal" role="dialog" aria-modal="true" aria-labelledby="reviewModalTitle">
-    <div class="modal-box">
-      <button type="button" class="modal-close-btn" aria-label="Close modal">✕</button>
-      <div class="modal-header-icon">⭐</div>
-      <h3 class="modal-title" id="reviewModalTitle">Rate Emanuel Pet Grooming</h3>
-      <p class="modal-subtitle">Give our website its own voice and share your pet's grooming experience!</p>
+  <!-- Mobile quick-action dock -->
+  <nav class="dock" id="dock" aria-label="Quick contact">
+    <a href="tel:+13238957164"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg>Call</a>
+    <a href="sms:+13238957164"><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg>Text</a>
+    <a href="#services">Services</a>
+  </nav>
 
-      <form id="writeReviewForm">
-        <!-- Star Rating Picker -->
-        <div style="text-align: center;">
-          <label style="font-weight: 700; font-size: 0.95rem; color: var(--dark);">Your Rating *</label>
-          <div class="star-rating-selector" id="starSelector" data-selected-rating="5">
-            <span class="star-item selected" data-value="1">★</span>
-            <span class="star-item selected" data-value="2">★</span>
-            <span class="star-item selected" data-value="3">★</span>
-            <span class="star-item selected" data-value="4">★</span>
-            <span class="star-item selected" data-value="5">★</span>
-          </div>
-          <div class="rating-text-feedback" id="starFeedbackText">5 Stars - Outstanding & Loved It! ⭐</div>
-          <input type="hidden" id="reviewRatingValue" value="5">
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label for="reviewAuthor">Your Name *</label>
-            <input type="text" id="reviewAuthor" class="form-control" placeholder="e.g. Elena R." required>
-          </div>
-          <div class="form-group">
-            <label for="reviewPetName">Pet's Name *</label>
-            <input type="text" id="reviewPetName" class="form-control" placeholder="e.g. Milo" required>
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label for="reviewPetType">Pet Type *</label>
-            <select id="reviewPetType" class="form-control" required>
-              <option value="dog">🐶 Dog</option>
-              <option value="cat">🐱 Cat</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="reviewPetBreed">Pet Breed</label>
-            <input type="text" id="reviewPetBreed" class="form-control" placeholder="e.g. Goldendoodle">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="reviewService">Service Received</label>
-          <select id="reviewService" class="form-control">
-            <option value="Full Haircut & Styling">Full Haircut & Styling</option>
-            <option value="The Hydro-Bath & Blowout">The Hydro-Bath & Blowout</option>
-            <option value="Gentle Cat Grooming Suite">Gentle Cat Grooming Suite</option>
-            <option value="Deep De-Shedding Therapy">Deep De-Shedding Therapy</option>
-            <option value="Puppy First Groom">Puppy First Groom</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="reviewComment">Your Review *</label>
-          <textarea id="reviewComment" class="form-control" rows="4" placeholder="How did Emanuel care for your pet? How was the cut and experience?" required></textarea>
-        </div>
-
-        <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
-          ⭐ Publish My Review & Stars
-        </button>
-      </form>
+  <!-- ===== Client portal dialog ===== -->
+  <dialog class="dialog" id="portalDialog" aria-labelledby="portalDialogTitle">
+    <div class="dialog-card" data-lenis-prevent>
+      <button class="dialog-close" type="button" data-close aria-label="Close">
+        <span></span><span></span>
+      </button>
+      <p class="neon neon-sm" aria-hidden="true">Coming soon</p>
+      <h2 id="portalDialogTitle">The Emanuel client portal</h2>
+      <p class="dialog-lead">Sign-in isn’t open yet. When the portal launches, you’ll be able to:</p>
+      <ul class="dialog-list">
+        <li><b>Earn loyalty points</b> with every visit</li>
+        <li><b>Book appointments</b> online</li>
+        <li><b>See your pet’s history</b>, including what was done each visit</li>
+        <li><b>Follow grooming progress</b> while your pet is with us</li>
+      </ul>
+      <button class="btn btn-disabled" type="button" disabled aria-disabled="true"><svg class="ico" aria-hidden="true"><use href="#i-lock"/></svg>Sign in · opens soon</button>
+      <p class="dialog-foot">Need to book today? <a href="tel:+13238957164">Call or text (323) 895-7164</a></p>
     </div>
-  </aside>
+  </dialog>
 
-  <!-- ==========================================================================
-       MODAL 2: CLIENT PORTAL (SIGN IN / REGISTER / DEMO TRACKER)
-       ========================================================================== -->
-  <aside class="modal-overlay" id="portalModal" role="dialog" aria-modal="true" aria-labelledby="portalModalTitle">
-    <div class="modal-box">
-      <button type="button" class="modal-close-btn" aria-label="Close modal">✕</button>
-      <div class="modal-header-icon">🐾</div>
-      <h3 class="modal-title" id="portalModalTitle">Emanuel Client Portal</h3>
-      <p class="modal-subtitle">Track your pet's grooming progress, history, and receipts.</p>
-
-      <!-- Modal Tabs -->
-      <div class="modal-tabs">
-        <button class="modal-tab-btn portal-tab-btn active" data-portal-tab="portalTabLogin">Client Login</button>
-        <button class="modal-tab-btn portal-tab-btn" data-portal-tab="portalTabRegister">Create Account</button>
-      </div>
-
-      <!-- Tab 1: Login Form -->
-      <div class="portal-tab-content" id="portalTabLogin">
-        <form id="portalLoginForm">
-          <div class="form-group">
-            <label for="loginUsername">Email or Phone</label>
-            <input type="text" id="loginUsername" class="form-control" placeholder="you@email.com or (323) 555-0199" required>
-          </div>
-          <div class="form-group">
-            <label for="loginPassword">Password</label>
-            <input type="password" id="loginPassword" class="form-control" placeholder="••••••••" required>
-          </div>
-          <button type="submit" class="btn btn-primary btn-lg" style="width: 100%; margin-top: 10px;">
-            Sign In to Pet Portal
-          </button>
-          <p style="text-align: center; margin-top: 14px; font-size: 0.85rem; color: var(--slate-light);">
-            Demo account access enabled. Click sign in to test the preview.
-          </p>
-        </form>
-      </div>
-
-      <!-- Tab 2: Register Form -->
-      <div class="portal-tab-content" id="portalTabRegister" style="display: none;">
-        <form id="portalRegisterForm">
-          <div class="form-group">
-            <label for="regOwnerName">Your Full Name</label>
-            <input type="text" id="regOwnerName" class="form-control" placeholder="Maria Gonzalez" required>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="regEmail">Email Address</label>
-              <input type="email" id="regEmail" class="form-control" placeholder="maria@gmail.com" required>
-            </div>
-            <div class="form-group">
-              <label for="regPhone">Cell Phone</label>
-              <input type="tel" id="regPhone" class="form-control" placeholder="(323) 555-0199" required>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="regPetName">Pet's Name</label>
-              <input type="text" id="regPetName" class="form-control" placeholder="Max" required>
-            </div>
-            <div class="form-group">
-              <label for="regPetType">Pet Type</label>
-              <select id="regPetType" class="form-control">
-                <option value="Dog">Dog</option>
-                <option value="Cat">Cat</option>
-              </select>
-            </div>
-          </div>
-          <button type="submit" class="btn btn-primary btn-lg" style="width: 100%; margin-top: 10px;">
-            🐾 Create Free Pet Profile
-          </button>
-        </form>
-      </div>
+  <!-- ===== Photo lightbox ===== -->
+  <dialog class="dialog lightbox" id="lightbox" aria-label="Photo viewer">
+    <div class="lightbox-card">
+      <button class="dialog-close" type="button" data-close aria-label="Close photo"><span></span><span></span></button>
+      <button class="lb-nav lb-prev" type="button" aria-label="Previous photo"><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+      <figure>
+        <img id="lbImg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" width="768" height="1024">
+        <figcaption id="lbCap"></figcaption>
+      </figure>
+      <button class="lb-nav lb-next" type="button" aria-label="Next photo"><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></button>
     </div>
-  </aside>
+  </dialog>
 
-  <!-- ==========================================================================
-       FLOATING QUICK ACTION BUTTONS
-       ========================================================================== -->
-  <div class="floating-contact-panel">
-    <a href="https://wa.me/13238957164" target="_blank" rel="noopener" class="float-action-btn btn-float-whatsapp" title="Chat on WhatsApp">
-      💬
-    </a>
-    <a href="tel:3238957164" class="float-action-btn btn-float-phone" title="Call Emanuel Pet Grooming">
-      📞
-    </a>
-  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-  <!-- Modern Interactive Engine -->
-  <script src="./Grooming/javascript/modern-grooming.js"></script>
+  <script src="./Grooming/javascript/vendor/lenis.min.js" defer></script>
+  <script src="./Grooming/javascript/luxe-bubbles.js" defer></script>
+  <script src="./Grooming/javascript/luxe.js" defer></script>
 </body>
 </html>
