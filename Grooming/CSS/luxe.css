@@ -589,15 +589,15 @@ em { font-style: italic; }
 .footer h3 { font: 700 .72rem/1 var(--font-body); letter-spacing: .22em; text-transform: uppercase; color: var(--aqua); margin-bottom: 18px; }
 .footer li { margin-bottom: 10px; color: rgba(255, 255, 255, .85); font-size: .98rem; }
 .footer li a { text-decoration: none; } .footer li a:hover { color: var(--aqua); }
-.developer-promo { display: grid; grid-template-columns: minmax(0, 1.8fr) minmax(0, 1fr); align-items: center; gap: 28px 48px; padding-block: clamp(32px, 4vw, 48px); border-top: 1px solid rgba(207, 232, 243, .18); }
-.developer-promo .eyebrow { font-size: .68rem; letter-spacing: .18em; }
-.developer-promo h2 { margin-top: 18px; max-width: 30ch; font: italic 500 clamp(1.8rem, 3vw, 2.6rem)/1.12 var(--font-display); letter-spacing: -.02em; text-wrap: balance; }
-.developer-promo-tagline { margin-top: 10px; color: var(--aqua-2); font-weight: 600; }
-.developer-promo-body { margin-top: 14px; max-width: 64ch; color: rgba(255, 255, 255, .84); font-size: .98rem; }
-.developer-promo-actions { justify-self: end; width: min(100%, 340px); }
-.developer-promo-link { width: 100%; padding: 16px 22px; line-height: 1.35; text-align: center; }
-.developer-promo-actions p { margin-top: 12px; color: var(--aqua-2); font-size: .78rem; text-align: center; }
-@media (max-width: 900px) { .developer-promo { grid-template-columns: 1fr; } .developer-promo-actions { justify-self: start; } }
+.business-promo { display: grid; grid-template-columns: minmax(0, 1.8fr) minmax(0, 1fr); align-items: center; gap: 28px 48px; padding-block: clamp(32px, 4vw, 48px); border-top: 1px solid rgba(207, 232, 243, .18); }
+.business-promo .eyebrow { font-size: .68rem; letter-spacing: .18em; }
+.business-promo h2 { margin-top: 18px; max-width: 30ch; font: italic 500 clamp(1.8rem, 3vw, 2.6rem)/1.12 var(--font-display); letter-spacing: -.02em; text-wrap: balance; }
+.promo-tagline { margin-top: 10px; color: var(--aqua-2); font-weight: 600; }
+.promo-body { margin-top: 14px; max-width: 64ch; color: rgba(255, 255, 255, .84); font-size: .98rem; }
+.promo-actions { justify-self: end; width: min(100%, 340px); }
+.promo-link { width: 100%; padding: 16px 22px; line-height: 1.35; text-align: center; }
+.promo-actions p { margin-top: 12px; color: var(--aqua-2); font-size: .78rem; text-align: center; }
+@media (max-width: 900px) { .business-promo { grid-template-columns: 1fr; } .promo-actions { justify-self: start; } }
 .footer-base { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 24px; padding-block: 24px 120px; border-top: 1px solid rgba(207, 232, 243, .18); font-size: .86rem; color: rgba(207, 232, 243, .75); }
 @media (max-width: 900px) { .footer-grid { grid-template-columns: 1fr 1fr; } .footer-brand { grid-column: 1 / -1; } }
 @media (max-width: 520px) { .footer-grid { grid-template-columns: 1fr; } }
